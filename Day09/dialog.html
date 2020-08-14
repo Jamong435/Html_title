@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dialog</title>
+   <script> 
+   //일반적인 경고창.(경고창에 여러개면 차례대로 실행)
+       alert();
+       alert('알림!!');
+
+       //사용자한테 확인/취소를 선택하게 하는 다이얼로그
+       //확인/취소 결과는 함수의 리턴값으로 옵니다 true false로옴
+       var answer=confirm('종료하시겠수?');
+       document.write(answer+"<br>");
+
+       //사용자가 입력! 리턴값은 string값이다
+       //단, 값을 입력하지않고 확인을 누르면 null리턴
+       //
+
+       var age=prompt('당신의 나이를 입력하세요',"0");
+       document.write(age);
+
+       function aaa(){
+           document.write("화면이 다지워짐") //주위!!!!!!!!
+       }
+       
+   </script>
+</head>
+<body>
+    <button onclick="aaa()">click
+
+    </button>
+</body>
+</html>

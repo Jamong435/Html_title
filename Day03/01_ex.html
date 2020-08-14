@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ex01</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+
+    <audio src="old_pop.mp3" autoplay controls>
+        브라우저가 audio태그를 지원하지않으면 보이는글씨.
+
+    </audio>
+
+    <!-- 브라우저에 따라 음원의 유형에 대응하기 위해 <source>태그 사용 -->
+    <!-- 속성의 이름과 속성의 값이 같은 철자면 값 생략가능함 -->
+    <audio autoplay controls>
+        <source src="./old_pop.mp3" type="audio/mp3">
+        <source src="./old_pop.mp3" type="audio/ogg">
+        브라우저에서 audio를 지원하지않음.
+
+    </audio>
+    <!-- 비디오는 오디오와 거의같음 -->
+    <video src="./movie.ogv" autoplay controls>
+        지원되지않음
+
+    </video>
+
+    <video controls width="400" height="300" poster="./coffee.gif">
+        <!-- poster은 처음 보여지는 사진 -->
+        <source src="./trailer.mp4" type="video/mp4">
+        <source src="./trailer.ogv" type="video/ogg">
+        <!-- ogv는 타입이 아직ogg임 -->
+        <source src="./trailer.webm" type="video/webm">
+
+
+    </video>
+
+    <hr>
+    <br>
+
+    <!-- ifram [inline fram] : 다른 html문서를 삽입 -->
+
+    <iframe src="../Day01/index.html" width="300" height="500"></iframe>
+    <!-- 다른 웹사티으의 문서도 표시 가능 -->
+    <iframe src="http://sesang435.dothome.co.kr/index.html" width="300" height="500"></iframe>
+    <!-- <iframe src="http://naver.com" width="3000" height="500"></iframe> -->
+
+    <!-- https들은 잘안열리는거많다.네이버안열림. -->
+    <!-- 링크<a>에 의해 ifram에 열리는 문서를 지정 -->
+    <iframe src="" name="aaa"></iframe>
+    <a href="http://www.w3c.org" target="aaa">웹공식사이트</a>
+    <!-- 앵커누르면 ifram안에 앵커에 지정된 사이트를 키는것. -->
+
+    <!-- ifram의 경계선을 안보이도록 -->
+    <iframe src="../Day02/02_text.html" frameborder="0" width="100%" height="500">
+        <!-- heigh와 width를 불러오는 사이트보다 더크게만들면 스크류바가없어지고 그러면 그냥 써저있는걸로느껴짐 -->
+
+    </iframe>
+<hr>
+<div style="background-color: yellow; border: 2px solid red; padding-left: 10px;">
+    <h2>title</h2>
+    <p>this is message</p>
+</div>
+    <p>
+        안녕하세요 나는 <div style="color: blue;">홍길동</div>입니다.
+        <!-- div와같으나 inline특징을가지고있습니다. -->
+    </p>
+    <p>
+        안녕하세요 나는 <span style="color: blue;">홍길동</span>입니다.
+        <!-- div와같으나 inline특징을가지고있습니다. -->
+    </p>
+
+    <!-- div의 대표적인 사용유형 웹사이트의 기본레이아웃 구조 잡을떄 -->
+
+    <div id="header"style="background-color: yellow;height:200px"></div>
+    <div id="content"style="background-color: green;height:200px"></div>
+    <div id="footer"style="background-color: blue;height:200px"></div>
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>nav menu </title>
+        <meta charset="utf-8">
+        <style>
+            ul{
+                list-style: none;
+            border-top: 2px solid greenyellow;
+            border-bottom: 2px solid greenyellow;
+            /* 패딩 10은 위아래  0은 좌우*/
+            padding: 10px 0px;
+            text-align: center;/* 블럭요소안 가운대정렬 */ 
+            font-family: "MS Gothic",sans-serif;
+            
+            }
+
+            ul li{
+                /* 디스플레이로 요소를 바꿀수있다 블럭을..인라인으로.. */
+                display: inline;
+                /* 대문자로바꾸기 */
+                text-transform: uppercase;
+                padding: 0px 20px;
+                /* 글짜간간격 */
+                letter-spacing: 10px;
+
+            }
+
+
+            ul li a{color:black; text-decoration: none; }
+            ul li a:hover{text-decoration: underline;}
+            
+            #header{
+                background: url(./food_5.png);
+                background-size: cover;
+                text-align: center;
+                color:black;
+                height: 400px;
+                padding: 3em 0em;
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <!-- 헤더이미지 -->
+        <div id="header">
+            <h1>home page</h1>
+            <p>this is my homepage</p>
+        </div>
+
+
+
+        <ul>
+            <!-- a에서 #떙땡을 누르면 그 땡땡 아이디쪽 페이지로간다 -->
+            <li><a href='#'>Home</a></li>
+            <li><a href='#'>blog</a></li>
+            <li><a href='#'>about</a></li>
+            <li><a href='#'>contact</a></li>
+        </ul>
+    </body>
+</html>

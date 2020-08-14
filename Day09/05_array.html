@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열</title>
+    
+    <script>
+        //배열의 2가지 생성방법
+        //1.리터럴 배열(literal array)
+
+        var arr=[10,20,30];
+        document.write(arr[0]+"<br>");
+        document.write(arr[1]+"<br>");
+        document.write(arr[2]+"<br>");
+        // 동적자료형 언어이기에 배열의 각 요소 자료형이 달라도됨
+        var arr1=[10,"aaa",true]
+        document.write(arr1[0]+"<br>");
+        document.write(arr1[1]+"<br>");
+        document.write(arr1[2]+"<br>");
+        document.write("<hr>")
+
+        //2.array 객체로 배열 설정
+        document.write(arr1[3]+"<br>");//undefined..
+        document.write("<hr>");
+        
+        //배열의 길이가 변경될수있음!
+        document.write(arr1.length+"<br>"); //출력값:3
+        arr1[5]=100; //배열의 [5번방]이생가면서 100이 대입됨. [그 사이에3,4번방이 자동으로
+        //만들어집니다.]
+        document.write(arr1.length+"<br>"); //출력값:6
+        document.write(arr1[0]+"<br>");
+        document.write(arr1[1]+"<br>");
+        document.write(arr1[2]+"<br>");
+        document.write(arr1[3]+"<br>");
+        document.write(arr1[4]+"<br>");
+        document.write(arr1[5]+"<br>");
+
+        document.write("<hr>");
+        //2.Array 객체로 배열 생성
+        var arr2= new Array(10,"aaa",true);
+        for(var i=0;i<arr2.length;i++){
+            document.write(arr2[i]+"<br>");
+        }
+        document.write('<br>');
+        //foreach문
+        for(var index in arr2){
+            //index변수는 방번호이다[요소값이아님]
+            document.write(arr2[index]+"<br>");
+        }
+        document.write('<br>');
+
+        //배열객체를 먼저 만들고 나중에 요소를 추가해도딤
+        var arr3=new Array();//0개짜리 배열도 생성가능
+        arr3[0]=10;
+        arr3[1]=20;
+        arr3[2]=30;
+        for(var i=0; i<arr3.length; i++){
+            document.write(arr3[i]+",");
+        }
+        document.write("<hr>");
+        // 연관배열--'키'로 인덱스를 대신함.
+        var arr4= new Array();
+        arr4['aa']=40;
+        arr4['bb']=20;
+        arr4['cc']=30;
+
+        document.write(arr4['aa']+"<br>");
+        document.write(arr4['bb']+"<br>");
+        document.write(arr4['cc']+"<br>");
+
+
+        // 리터럴 배열로 만들기
+        var arr5=[];
+        arr5['aa']=40;
+        arr5['bb']=20;
+        arr5['cc']=30;
+        document.write(arr5['aa']+"<br>");
+        document.write(arr5['bb']+"<br>");
+        document.write(arr5['cc']+"<br>");
+        document.write("<hr>");
+
+
+        //연관배열을 만들면서 값을 대입고자 한다면..
+        //마치 객체 만들듯이 생성
+        var arr6={'aa':10, 'bb':20};
+        var p={aa:10, bb:20};
+        document.write(arr6['aa']+"<br>");
+        document.write(arr6['bb']+"<br>");
+        document.write("<hr>");
+
+        //사실,연관배열과 객체는 거의 같은 메모리 구조를 가짐.
+        //연관배열의 각 요소제어를 마치 객체 맴버변수 다루듯이
+        document.write(arr6.aa+"<br>");
+        document.write(arr6.bb+"<br>");
+        document.write("<hr>");
+
+        //연관배열을 사용하는 특별한기법
+        //<form>요소 안에 있는 input요소들의 값을 제어할떄
+        //매우 유용하게 코딩가능
+
+
+    </script>
+</head>
+<body>
+    
+    <!-- form요소와 input요소들을 연관배열로 접근하는 특별한 방식 -->
+    <form action=""name="aa">
+        <input type="text"name="in1"><br>
+        <input type="text"name="in2"><br>
+        <input type="text"name="in3"><br>
+    </form>
+    <script>
+        //웹문서안에서 document문서안에서 form요소들은 멤버변수로 관리.
+        //document안에 form이 배열로 관리되서 
+        document.forms[0][0].value=10; //이렇게하면 form요소 첫번째의 첫 input요소를 지칭할수있는것이 가능.
+        document.forms[0]["in2"].value=20;
+        document.forms['aa'][2].value=30;
+
+        document.forms.aa[0].value=22;
+        document.forms.aa["in2"].value=32;
+        document.forms.aa["in3"].value=53;
+
+        // 이런식이면 input요소들의 연관배열도 멤버변수처럼
+        document.aa.in1.value="kkk";
+        document.aa.in2.value="sadf";
+
+        // 연관배열의 '키'는 문자열이므로 문자합성이 가능함.
+        for(var i=1;i<document.aa.length+1;i++){
+            document.aa['in'+i].value=i;
+        }
+    </script>
+    <script>
+        var arr7= new Array();
+        var a1=[10,20,30];
+        var a2=["aa","bb","cc"];
+        var a3=[true,false,3.14];
+
+        arr7[0]=a1;
+        arr7[1]=a2;
+        arr7[2]=a3;
+        
+        for(var i=0; i<arr7.length;i++){
+            for(var k=0; k<arr7[i].length;k++){
+                document.write(arr7[i][k]+",");
+            }
+        document.write('<br>');
+
+        }
+        document.write("<hr>");
+
+    </script>
+</body>
+</html>

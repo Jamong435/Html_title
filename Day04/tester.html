@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>css기본문법</title>
+        <meta charset="utf-8">
+        
+        <style>
+        
+            /* 선택자의 종류 */
+
+            /* 1.타입(요소) 선택자 */
+            
+            h2{color: red;}
+            p{color: blue; font-family: serif;}
+            /* h2와 p 요소에게 색깔을 부여하는 코드입니다 */
+
+
+            /* 2.전체 선택자 */
+
+            *{color: yellow; font-style: italic;}
+            /* *은 전체 다 바꿔주세요!라는 뜻입니다. 
+            그러나 이것은 안바뀔것입니다 이유는 css는 디자인의 우선순위가있는데 
+            직접적으로 디자인을 바꾼 1.타입 요소 선택자에게 우선순위가 밀리기 때문입니다*/
+
+            /* 3.아이디 선택자 */
+            #p1{color: green;}
+            /* 아이디 p1인거 바꿔주세요! */
+
+            /* 4.클래스 선택자  맞침표는. 클래스를 뜻합니다. 타입선택지보다 우선순위*/
+            .aa{color:violet;}
+            /* aaclass인것들은 다바꿔주세요!라는 뜻입니다 아래서 class를 확인해봅시다 */
+
+            p.aa{color: gray;}
+            /*  p요소중에서 class가 aa인 요소 선택!이라는뜻입니다*/
+
+            /* 5.선택자 그룹 */
+            li, a{color: blue;}
+            /*  쉼표,을써서 li와 a를 설정!한다는 뜻입니다 */
+        
+
+            /* 6.자식, 자손 선택자 */
+            #ss>p{color: black;}
+            /* 제가 div안에 div를 또 만들어놨습니다. > 이 부호의 뜻은 바로 직속 자식한테만! 
+            디자인을 부여하는겁니다*/
+
+            #ss p {color: lime;}
+            /* ss의 전체의 p !에게 칼라를 부여합니다. 띄워쓰기가 자손이라는뜻이됩니다*/
+            /* ss의 아이디를 부여한 곳 아래에 있는 모든 p들은 이 칼라를 부여받습니다 */
+            
+            
+            /* 이 두개의 다른점이 뭘까요? */
+            p.aa{color: red;} 
+            /* p요소중에서 class속성값이 aa인 요소선택 */
+            p .aa{color: red;}
+            /* p요소의 자손들중에 클래스값이 aa인것 */
+
+
+            #kk ul.gg>li{background-color: green;}
+            /* kk라는 아이디 안에 있는 ul클래스값이 gg인 ul안에 li에게 색깔지정 !*/
+            /* 7.속성 선택자 */
+       
+            p[class]{font-size: 30px;}
+            /* class라는 속성을 가지고 있는 p요소 */
+        
+            div[id="ss"]{font-weight: bold;}
+            /* id가 ss인 div를지칭 */
+
+
+            /* 8.의사 선택자 (링크 눌렀을때 안눌렀을떄 색깔변하는거 보셨나요?) */
+            a:link{color:blue;}
+            /* 안눌렀을떄는 파랑색 */
+            a:visited{color:red;}
+            /* 눌렀다면 빨간색 */
+
+            /* 마우스커서 올려놨을때랑 눌렀을때 그찰라 */
+            a:hover{color:green;}
+            a:active{color: greenyellow;}
+            /* hover는 반드시 link,visited뒤에 작성해야함 */
+            /* active는 반드시 hover뒤에 작성해야함 */
+
+            #kk ul li:first-child{color: red;}
+            #kk ul li:nth-child(2){color: black;}
+            #kk ul li:last-child{color: aqua;}
+
+            /* 수식을 이용한 n번째 테이블 줄에 색깔넣을수도 있다 */
+            table tr:nth-child(2n+1){background-color:aqua ;}
+
+
+
+        </style>
+
+    </head>
+
+    <body>
+        <h2 class="aa"> css selector test</h2>
+        <p id="p1"> hello world</p>
+        <p class="aa"> nice to meet you</p>
+        <!-- 1.타입(요소)선택자 2.전체선택자 3.아이디 선택자 4.클래스 선택자-->
+
+
+        <ul>
+            <li>aaa</li>
+            <li>bbb</li>
+            <li>ccc</li>
+        </ul>
+<a href="">고고</a>
+
+
+<!-- 6.자식, 자손 선택자 -->
+<div id="ss">
+    <h4>Region</h4>
+    <p>Hello world</p>
+
+    <div>
+        <p>Apple</p>
+        <p>Orange</p>
+        <p>Banana</p>
+    </div>
+</div>
+
+<!-- 다소복잡한 선택자 -->
+<div id="kk">
+
+    <ul>
+        <li>111</li>
+        <li>222</li>
+        <li>3333</li>
+    </ul>
+    <ul class="gg">
+        <li>hhh</li>
+        <li>qqq</li>
+        <li>vvv</li>
+    </ul>
+</div>
+<!-- 8.의사 선택자 -->
+<a href="http://www.google.com">google</a>
+
+<!-- 수식을 이용한 n번째 지식 스타일 -->
+<table border="1">
+    <tr>
+        <td>aa</td>
+        <td>bb</td>
+        <td>cc</td>
+        <td>dd</td>
+    </tr>
+    <tr>
+        <td>aa</td>
+        <td>bb</td>
+        <td>cc</td>
+        <td>dd</td>
+    </tr>
+    <tr>
+        <td>aa</td>
+        <td>bb</td>
+        <td>cc</td>
+        <td>dd</td>
+    </tr>
+    <tr>
+        <td>aa</td>
+        <td>bb</td>
+        <td>cc</td>
+        <td>dd</td>
+    </tr>
+</table>
+
+
+
+
+
+    </body>
+</html>

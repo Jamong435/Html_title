@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>css기본문법</title>
+        <meta charset="utf-8">
+        <!-- 스타일 시트 작성 작업 -->
+
+        <!-- 웹문서 html에 스타일 적용 (스타일을 지정하는 언어(문법):css ) -->
+        <style>
+            /* 이 style요소 안에서는 html이 아니라 css문법체계를 따름 */
+           
+           /* 같은요소에 실수로 중복해서 값을주면 어떻게되나요? 맨마지막
+           꺼 적용 */
+           /* 주요용어 : 선택자, 속성, 값 */
+
+            /* 선택자의 종류 */
+            /* 1.타입(요소) 선택자 */
+            h2{color: red;}
+            p{color: blue; font-family: serif;}
+
+            /* 2.전체 선택자 */
+            /* 원래는 중복요소시 뒤에것이 발동되는데 
+            같은요소에 스타일 적용시 개별선택자가 우선적용되기에 
+            노랑색으로안보임 그러나 폰트는 전체였기때문에 뒤에코드가 발동됨*/
+            *{color: yellow; font-style: italic;}
+            /* 전체 다 바꿔주세요 */
+
+            /* 3.아이디 선택자 */
+            #p1{color: green;}
+            /* 아이디 p1인거 바꿔주세요 */
+
+            /* 4.클래스 선택자 . 이 클래스를 뜻함. 타입선택지보다 우선순위*/
+            .aa{color:violet;}
+            /* aaclass인것들은 다바꿔주세요 */
+
+            /* p요소중에서 class가 aa인 요소 선택 */
+            p.aa{color: gray;}
+
+            /* 5.선택자 그룹 */
+            li, a{color: blue;}
+        
+
+            /* 6.자식, 자손 선택자 */
+            #ss>p{color: black;}
+            /* ss의 직속하위층 */
+            #ss p {color: lime;}
+            /* ss의 전체의 p */
+            /* 아래 둘은 완전히 다름 */
+            p.aa{} 
+            /* p요소중에서 class속성값이 aa인 요소선택 */
+            p .aa{}
+            /* p요소의 자손들중에 클래스값이 aa인것 */
+
+/* 띄워쓰기가 자손이라는뜻 */
+/* 이런것도 가능함 */
+#kk ul.gg>li{background-color: green;}
+/* kk라는 아이디 안에 있는 ul클래스값이 gg인 ul안에 li에게 색깔지정 */
+            /* 7.속성 선택자 */
+        p[class]{font-size: 30px;}
+        /* class라는 속성을 가지고 있는 p요소 */
+        div[id="ss"]{font-weight: bold;}
+        /* id가 ss인 div를지칭 */
+
+
+            /* 8.의사 선택자 */
+            a:link{color:blue;}
+            a:visited{color:red;}
+
+            /* 마우스커서 올려놨을때랑 눌렀을때 그찰라 */
+            a:hover{color:green;}
+            a:active{color: greenyellow;}
+            /* hover는 반드시 link,visited뒤에 작성해야함 */
+            /* active는 반드시 hover뒤에 작성해야함 */
+
+            #kk ul li:first-child{color: red;}
+            #kk ul li:nth-child(2){color: black;}
+            #kk ul li:last-child{color: aqua;}
+
+            /* 수식을 이용한 n번째 지식스타일 짝수만 색깔넣을수있다 */
+            table tr:nth-child(2n+1){background-color:aqua ;}
+
+
+
+        </style>
+
+    </head>
+
+
+
+
+
+    <body>
+        <h2 class="aa"> css selector test</h2>
+        <p id="p1"> hello world</p>
+        <p class="aa"> nice to meet you</p>
+        <!-- 1.타입(요소)선택자 2.전체선택자 3.아이디 선택자 4.클래스 선택자-->
+
+
+        <ul>
+            <li>aaa</li>
+            <li>bbb</li>
+            <li>ccc</li>
+        </ul>
+<a href="">고고</a>
+<!-- 6.자식, 자손 선택자 -->
+<div id="ss">
+    <h4>Region</h4>
+    <p>Hello world</p>
+
+    <div>
+        <p>Apple</p>
+        <p>Orange</p>
+        <p>Banana</p>
+    </div>
+</div>
+
+<!-- 다소복잡한 선택자 -->
+<div id="kk">
+
+    <ul>
+        <li>111</li>
+        <li>222</li>
+        <li>3333</li>
+    </ul>
+    <ul class="gg">
+        <li>hhh</li>
+        <li>qqq</li>
+        <li>vvv</li>
+    </ul>
+</div>
+<!-- 8.의사 선택자 -->
+<a href="http://www.google.com">google</a>
+
+<!-- 수식을 이용한 n번째 지식 스타일 -->
+<table border="1">
+    <tr>
+        <td>aa</td>
+        <td>bb</td>
+        <td>cc</td>
+        <td>dd</td>
+    </tr>
+    <tr>
+        <td>aa</td>
+        <td>bb</td>
+        <td>cc</td>
+        <td>dd</td>
+    </tr>
+    <tr>
+        <td>aa</td>
+        <td>bb</td>
+        <td>cc</td>
+        <td>dd</td>
+    </tr>
+    <tr>
+        <td>aa</td>
+        <td>bb</td>
+        <td>cc</td>
+        <td>dd</td>
+    </tr>
+</table>
+
+
+
+
+
+    </body>
+</html>

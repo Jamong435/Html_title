@@ -1,0 +1,134 @@
+/* 내가원하는 패딩을주기위해 기존에있는 요소들의 패딩을다뺴주는걸먼저한다 */
+/* background-image: url(./images/back1.png); */
+*{padding: 0; margin: 0;
+}
+
+/* 화면에 너무 붙어 있는 것이 싫어서 */
+body{
+    width: 100%;
+    position: relative;
+ padding: 30px;
+ background-color: #F3F1E9;
+ background-image: url(./images/back1.png);
+}
+
+/* 제목줄 영역 */
+header{
+ 
+ color: tomato;
+ padding: 5px;
+ text-align: center;
+
+}
+
+header a{text-decoration: none; color: tomato;
+ font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+/* nav 메뉴 */
+nav{
+    border-top: 1px solid white;
+ margin-top: 10px;
+ margin-bottom: 20px;
+ 
+}
+
+nav ul{
+ border-top: 1px solid tomato;
+ border-bottom: 1px solid tomato;
+ list-style: none;
+ text-align: center;
+}
+
+nav ul li{
+ 
+ display: inline;
+ margin-left: 2em;
+ letter-spacing: .3em;
+}
+
+nav ul li a{
+ text-transform: uppercase;
+ text-decoration: none;
+ color: black;
+ font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+ line-height: 3em;
+}
+
+nav ul li a:hover{
+ text-decoration: underline;
+ color: blue;
+}
+
+
+/* 왼쪽 사이드 메뉴 */
+aside#left{
+ float: left;
+ text-align: center;
+ width: 10em;
+ line-height: 2em;
+ margin-right: 1em;
+
+}
+
+aside#left ul{
+ list-style: none;
+
+}
+
+aside#left ul li{
+ background-color: #3f3f3f;
+ padding: 5px 10px;
+ border-bottom: 1px solid black;
+ transition: width 0.3s;
+ /* trasiton 어디에?? */
+ 
+
+}
+
+aside#left ul li a{
+ color: white;
+ text-decoration: none;
+ 
+}
+
+aside#left ul li:hover{
+ background-color: tomato;
+ width: 15em;
+}
+aside#left ul{
+ padding: 5px;
+}
+
+
+
+/* main content영역 */
+section#main{
+ float: left;
+ padding: 5px;
+ width: 460px;
+}
+
+/* 오른쪽 사이드 영역 */
+aside#right{
+ float: right;
+ padding: 10px;
+ /* 12글자정도 들어갈사이즈 */
+ width: 12em;
+}
+aside#right#shopcart{
+ margin-bottom: 30px;
+
+}
+aside#right#login input{
+ margin-bottom: 5px;
+}
+
+/* footer영역 */
+footer{
+ clear: both;
+ background-color: #333333;
+ color: #F3F1E9;
+ text-align: center;
+ 
+}

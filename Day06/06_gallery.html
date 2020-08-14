@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>gallery</title>
+    <meta charset="utf-8">
+    <style>
+        p{margin: 0px;padding: 0px;}
+        a{text-decoration: none;}
+        div.aa{float: left;
+        margin: 5px;
+        border: 1px solid black;
+        text-align: center;
+        
+        }
+    </style>
+    </head>
+    <body>
+        
+        <!-- 질문많이받던거. 왜 색지정이 같이안될까?
+        아래요소들도 다 float되서 떠있다는느낌이라 적용안된다.
+        float의 주의점 이 요소를 감싸는 부모요소의 height에 영향을준다
+        부모요소의 height은 자식들을 감쌀 사이즈임
+        근데 자식이 float되어있으면 높이값이 줄어듬
+        해결책 1 부모요소도 float하면됨. 권장하지않음
+        부모요소의 heigh값을 명시적으로 지정해버림-->
+        
+
+        <div style="background-color: blue; ">
+            <h3>이미지겔러리</h3>
+            <div class="aa"><a href=""><img src="./sunshine.jpg" alt="gogo" width="110px" height="100px"><p>sunshine</p></a></div>
+            <div class="aa"><a href=""><img src="./lion.png" alt="gogo" width="110px" height="100px"><p>sunshine</p></a></div>
+            <div class="aa"><a href=""><img src="./food_5.png" alt="gogo" width="110px" height="100px"><p>sunshine</p></a></div>
+            <div class="aa"><a href=""><img src="./sunshine.jpg" alt="gogo" width="110px" height="100px"><p>sunshine</p></a></div>
+            <div class="aa"><a href=""><img src="./lion.png" alt="gogo" width="110px" height="100px"><p>sunshine</p></a></div>
+            <div class="aa"><a href=""><img src="./food_5.png" alt="gogo" width="110px" height="100px"><p>sunshine</p></a></div>
+            
+        </div>
+    </body>
+</html>

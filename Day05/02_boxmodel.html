@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>box모델</title>
+    <meta charset="utf-8">
+        <style>
+            p.border{
+                  /* 경계선의 스타일 [width지정 없으면 자동 3px] */
+                border-style: solid;
+
+                /* top,right,bottom,left로 나누어 스타일링 가능 */
+                border-top-style: dotted;
+                /* 경계선 두께 :px , thin, tick*/
+                border-width: 4px;
+                border-bottom-width: 8px;
+                border-color: red;
+                border-right-color: blueviolet;
+
+                /* 모서리 둥글게 */
+                border-radius: 20px;
+                border-bottom-left-radius: 50px;
+
+                /* 경계선이미지 */
+                /* 이미지가 보일만큼 경계선 두계 조절 
+                투명이 transparent*/
+                border:30px solid transparent;
+                border-image: url(./border.png);
+
+                /* 높이너비를 3030으로 짤라라 9등분 */
+                border-image-slice: 30 30;
+                border-image-repeat:round ;
+
+                /* 요소크기 
+                height퍼센트를 줄수없다 이유:기준값이없기때문에
+                html이라는 요소를 100%를주어야한다 */
+                width: 70%;
+                height:250px;
+
+                /* 마진 */
+                /* margin-left: 50px; */
+                /* 마진을 이용해서 요소를 중앙정렬하고싶다면? */
+                margin-left: auto;margin-right: auto;
+            
+            }
+            /* 인라인 요소 크기지정 해보기 */
+            /* 인라인 요소는 크기지정이 불가능함. */
+
+            /* png jpg의 차이점은 투명도가 되냐 안되냐이다
+            jpg는 뒤에 하얀색이 진짜 하얀색이다 jpg는 투명도
+            조절이안된다. */
+            a{background-color: red; width: 50%;}
+            em{background-color: aqua; width: 50%;}
+
+            /* 인라인에서도 크기지정이 가능한 요소들이있다
+            block요소, inline요소도 있고
+            inline-block요소가 있다:input,img 
+            등이 있어서 사이즈를 바꿀수있는 inline이 있다는것이다
+            그러면 inline은 사이즈를 못바꿀까?
+            아니다 online-block으로 바꿔서 사이즈를 바꿀수있다.
+            */
+            input{width: 100%; background-color: pink;}
+            img{width: 600px;}
+
+            /* 두요소 마진은 서로 겹침 */
+            #p1{background-color: red; height: 50px; margin: 0px; margin-bottom: 10px;}
+            #p2{background-color: green; height: 50px; margin: 0px; margin-top: 10px;}
+
+            /* 마진을 음수까지 넣을수있다. */
+            #p1{margin: 0px;}
+            #p2{margin: 0px; margin-top: -10px; width: 50%;}
+            /* 배경 색상, 이미지 지정 */
+
+            p#background{background-color: greenyellow;
+            background-image: url("./image.png");
+            background-size: 200px 100px;
+            background-repeat: repeat;
+            /* 가로만 반복, 반복안않다 */
+            background-repeat: repeat-x;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-position: right top;
+            background-position: top center;
+
+            /* 축약형 */
+            background: green url(./image.png) no-repeat center;
+
+            padding: 20px;
+
+            }
+
+            /* 배경이미지가 화면에 붙는 방식지정 */
+
+            p#attache{
+                width: 60%;
+                height: 200px;
+                border: 2px solid blue;
+                overflow: scroll;
+                margin-left: auto; margin-right: auto;
+                background-image: url(./image.png);
+                background-size: 200px 100px;
+                background-repeat: no-repeat;
+                background-position: center;
+                
+                
+                /* 배경이미지가 붙는 형태지정 */
+                background-attachment: scroll;
+                /* 콘텐츠가 스크롤되어도 이 요소 배경은 항상 배경의
+                포지션을 유지함 */
+                background-attachment: local;
+                /* 요소의 콘텐츠와 같이 스크롤됨.(단,콘텐츠가 요소보다 클때) */
+
+
+                background-attachment: fixed;
+                /* 브라우저의 기준점으로 위치됨. */
+
+
+            }
+
+
+
+
+        
+          
+        </style>
+    </head>
+    <body>
+        <!-- 경계선 border/요소 크기/중앙정렬 -->
+        <p class="border">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis minima odio natus tenetur sed sapiente inventore nihil error, veritatis deserunt ullam nesciunt recusandae fugit eos, numquam autem itaque officiis ducimus.
+
+        </p>
+        <!-- 인라인 요소는 기본적으로 width,height이 안됨 -->
+        <a href="">gooooogle</a>
+        <em>nice to meet you</em>
+        <!-- 인라인 요소 중에서 width,height 이 되는 요소있음 -->
+        <input type="text">
+        <img src="./back.jpg">
+
+        <hr>
+        <!-- margin -->
+        <div class="m">
+            <p id="p1">p1</p>
+            <p id="p2">p2</p>
+
+        </div>
+        <!-- 배경 -->
+        <p id="background">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident eum deserunt libero assumenda rem consectetur laborum nisi reiciendis enim blanditiis aut veniam laudantium praesentium, temporibus perspiciatis molestiae aliquam unde magnam?
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident eum deserunt libero assumenda rem consectetur laborum nisi reiciendis enim blanditiis aut veniam laudantium praesentium, temporibus perspiciatis molestiae aliquam unde magnam?
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident eum deserunt libero assumenda rem consectetur laborum nisi reiciendis enim blanditiis aut veniam laudantium praesentium, temporibus perspiciatis molestiae aliquam unde magnam?
+        </p>
+
+        <p id="attache">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident eum deserunt libero assumenda rem consectetur laborum nisi reiciendis enim blanditiis aut veniam laudantium praesentium, temporibus perspiciatis molestiae aliquam unde magnam?
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident eum deserunt libero assumenda rem consectetur laborum nisi reiciendis enim blanditiis aut veniam laudantium praesentium, temporibus perspiciatis molestiae aliquam unde magnam?
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident eum deserunt libero assumenda rem consectetur laborum nisi reiciendis enim blanditiis aut veniam laudantium praesentium, temporibus perspiciatis molestiae aliquam unde magnam?
+        
+
+        </p>
+        <p id="attache">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident eum deserunt libero assumenda rem consectetur laborum nisi reiciendis enim blanditiis aut veniam laudantium praesentium, temporibus perspiciatis molestiae aliquam unde magnam?
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident eum deserunt libero assumenda rem consectetur laborum nisi reiciendis enim blanditiis aut veniam laudantium praesentium, temporibus perspiciatis molestiae aliquam unde magnam?
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident eum deserunt libero assumenda rem consectetur laborum nisi reiciendis enim blanditiis aut veniam laudantium praesentium, temporibus perspiciatis molestiae aliquam unde magnam?
+        
+
+        </p>
+       
+        
+
+
+    </body>
+</html>

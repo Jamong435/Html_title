@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ex</title>
+        <meta charset="utf-8">
+        <style>
+            p#ww{
+                background-color: tomato;
+                min-width: 600px;
+                min-height: 200px; 
+            }
+            /* overflow 흘러넘치다*/
+            #target{
+                border: 1px solid blue;
+                height: 100px;
+                width: 300px;
+                /* 자식요소가 부모요소보다 클떄 어떻게 할지 */
+                overflow: hidden;
+                /* 넘어가면 지워라 */
+                overflow: scroll;
+                /* 무조건스크롤바를만들어라 */
+                overflow: auto;
+                /* 알아서 스크롤바 만들어라 */
+            }
+            #target p{
+                background-color: blueviolet;
+                width: 200px;
+                height: 50px;
+            }
+            div.aa{
+                border:1px solid red;
+                width: 300px;
+                height: 100px;
+                overflow: auto;
+            }
+        </style>
+    </head>
+    <body>
+
+        <p id="ww">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem amet consequatur, veniam accusamus repudiandae voluptate. Earum facere accusantium, neque dolore placeat odit vel sunt nemo, accusamus enim impedit at similique!
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem amet consequatur, veniam accusamus repudiandae voluptate. Earum facere accusantium, neque dolore placeat odit vel sunt nemo, accusamus enim impedit at similique!
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem amet consequatur, veniam accusamus repudiandae voluptate. Earum facere accusantium, neque dolore placeat odit vel sunt nemo, accusamus enim impedit at similique!
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem amet consequatur, veniam accusamus repudiandae voluptate. Earum facere accusantium, neque dolore placeat odit vel sunt nemo, accusamus enim impedit at similique!
+
+        </p>
+        <div id="target">
+            <p>block#1</p>
+            <p>block#2</p>
+            <p>block#3</p>
+            <p>block#4</p>
+            <p>block#5</p>
+
+        </div>
+
+        <div class="aa">
+            <img src="./pome.png" alt="sfd">
+
+        </div>
+
+        <hr>
+        
+        <div id="box1">box#1</div>
+        <div id="box2">box#2</div>
+        <div id="box3">box#3</div>
+        <!-- z-index스타일링작업 -->
+        <style>
+            #box1{
+                position: absolute;
+                top: 0px;left: 0px;
+                width: 100px;height: 100px;
+                background-color: blueviolet;
+                /* 위치선정에 용이한 z-index */
+                z-index: 1;
+            }
+            #box2{
+                position: absolute;
+                top: 30px;left: 30px;
+                width: 100px;height: 100px;
+                background-color: gray;
+                z-index: 3;
+            }
+            #box3{
+                position: absolute;
+                top: 60px;left: 60px;
+                width: 100px;height: 100px;
+                background-color: burlywood;
+                z-index: 2;
+            }
+        </style>
+    </body>
+</html>

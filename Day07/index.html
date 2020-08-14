@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Web shop
+        </title>
+        <meta charset="utf-8">
+        <!-- 스타일 적용 -->
+        <link rel="stylesheet" href="./index.css" media="(min-width:700px)">
+        <link rel="stylesheet" href="./index_m.css" media="(max-width:700px)">
+        <script src="https://kit.fontawesome.com/bb97fc9f09.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <header>
+            <h1>
+                  <a href="./index.html">Web Shop</a>
+                  <i class="fas fa-boxes"></i>
+            </h1>
+        
+        <nav>
+            <ul>
+               
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./index.html">About</a></li>
+                <li><a href="./index.html">News</a></li>
+                <li><a href="./index.html">My account</a></li>
+                <li><a href="./index.html">Contacts</a></li>
+            </ul>
+        </nav>
+    </header>
+        <aside id="left">
+            <h4>카테고리</h4>
+        
+            <ul>
+                <li><a target="ifram1" href="./computer.html">컴퓨터</a></li>
+                <li><a target="ifram1" href="./clothing.html">의류</a></li>
+                <li><a target="ifram1" href="./music.html">음악</a></li>
+                <li><a target="ifram1" href="./movie.html">영화</a></li>
+                <li><a target="ifram1" href="./sports.html">스포츠/레저</a></li>
+                <li><a target="ifram1" href="./interia.html">가구/인테리어</a></li>
+                <li><a target="ifram1" href="./food.html">식품</a></li>
+            </ul>
+        </aside>
+        <section id="main">
+            <article>
+                <iframe name="ifram1" src="./computer.html" frameborder="0" width="450" height="1000"></iframe>
+            </article>
+        </section>
+        <aside id="right">
+            <div id="shopcart">
+                <h4>shopping cart</h4>
+                현재 쇼핑카에 물품이 없습니다.<br> 
+                <a href="./shopping cart.html">쇼핑카트 보기</a>
+            </div>
+            <div id="login">
+                <h4>Log in</h4>
+                <form action="./login.php" method="POST">
+                <label><input type="text" name="id"></label><br>
+                <label><input type="password" name="password"></label><br>
+
+                <input type="submit" value="로그인">
+                <input type="reset" value="초기화"><br>
+                <!-- _blank를 하면 새탭으로 감 -->
+                <a href="./register.html" target="_blank">회원가입</a>
+                <a href="#" target="_blank">비밀번호분실</a>
+                </form>
+            </div>
+        </aside>
+        <footer id="right">
+            <h3>Copyright &copy; 2020 kim</h3>
+        </footer>
+    </body>
+</html>

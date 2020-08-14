@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            의사선택자의 연습
+        </title>
+        <meta charset="utf-8">
+        <style>
+            a#anchor:link{color: red;}
+            a#anchor:visited{color: blue;}
+            a#anchor:hover{color: greenyellow; font-size: 2em;}
+            a#anchor:active{color: yellow;}
+
+            /* 모든요소에 hover가능하다 */
+            p:hover{background-color: teal;}
+            img{background-color: yellow;}
+            img:hover{background-color: greenyellow; width: 100%;}
+
+        </style>
+    </head>
+    <body>
+        <a id="anchor" href="https://www.naver.com">aaaa</a>
+        <p>hello world</p>
+        <img src="./image.png" alt="없음">
+    </body>
+</html>

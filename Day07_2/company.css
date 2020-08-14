@@ -1,0 +1,72 @@
+*{margin: 0; padding: 0;}
+ul{list-style: none;}
+a{text-decoration: none;}
+
+header{
+    width: 800px;
+    height: 95px;
+    background-color: #2d3a4b;
+
+    /* 자식요소가 absolute일때 부모요소의 좌상단을 기준점으로 하려면 */
+    position: relative;
+}
+
+/* 제목영역의 메일 로고 이미지 위치 지정 */
+#logo{
+    position: absolute;
+    top: 30px;
+    left: 30px;
+}
+
+/* 제목영역의 우상단 메뉴 위치지정 */
+#top_menu{
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    color: white;
+    font-size: 12px;
+}
+
+#top_menu a{color: white;}
+
+/* 제목영역의 메인 네비게이션 메뉴 */
+nav{
+    position: absolute;
+    bottom: 10px;
+    left: 220px;
+    font-size: 16px;
+}
+
+nav li{
+    display: inline;
+    margin-left: 30px;
+}
+
+nav li a{color: white;}
+
+/* 콘텐츠영역의 이미지 아래에 있는 배너 이미지를 inline으로 */
+#content li{
+    display: inline;
+    margin-left: 50px;
+}
+
+/* footer 이미지 */
+footer{
+    width: 800px;
+    height: 90px;
+    margin-top: 20px;
+    background-color: #f1f1f1;
+}
+
+footer img{
+    margin: 10px 0 0 60px;
+}
+
+/* 전체페이지를 가운대로 */
+#page{
+    width: 820px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+

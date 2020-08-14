@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            //2. Number (android Wrapper class 같은 Integer)
+            
+            //수치형과 Number는 다름
+            var a= 10;
+            var b= new Number(10);
+
+            document.write(typeof(a)+"<br>");
+            document.write(typeof(b)+"<br>");
+            document.write( a===b  );
+            document.write("<hr>");
+
+
+            //Number 타입의 주요기능들(메소드들)
+            var num= new Number(123.456);
+
+            //1.지수 표현식
+            document.write( num.toExponential()+"<br>");
+            document.write( num.toExponential(2)+"<br>");
+
+            //2.소수점 자르기
+            document.write(num.toFixed()+"<br>");
+            document.write(num.toFixed(2)+"<br>");
+
+            //3.진법 변환 표기
+            var num= new Number(10);
+            document.write(num.toString()+"<br>");
+            document.write(num.toString(16)+"<br>"); //16진수
+            document.write(num.toString(8)+"<br>"); //8진수
+            document.write(num.toString(2)+"<br>"); //2진수
+
+            //수치형은 Number객체로 자동 wrapping됨
+            var a=255;
+            document.write(a.toString(16));
+
+            //리터럴 값 수치형은 무조건 wrappin되지 않음,되는경우도있음
+            // document.write(10.toString(2));//안됨
+            document.write(10.5234.toFixed(2)+"<br>"); //소수점이 있으면 됨.
+
+
+
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

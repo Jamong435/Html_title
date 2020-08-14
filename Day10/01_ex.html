@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+
+        <script>
+            
+            // JS에서의 객체의 2가지 종류
+            //1. 내장객체 : document, window, navigator..etc  // Date, String, Number, Array
+            //2. 사용자정의 객체
+
+            //객체 생성 2가지 방법 [ ECMA5이상 버전부터 class 키워드 등장 : 즉, 3가지 방법이 있는것임 ]
+            //1. 리터럴 객체 [ 객체를 생성하면서 설계하는 방식 ]
+            var person= {
+                //멤버변수 - 속성 [property]
+                name:"sam", //변수명에 "name"해도 됨 - but, 연관배열과 혼동될 수 있어서 권장하지 않음
+                age:20,
+
+                //멤버함수 - 메소드 [method]
+                //function  aaa() {} :ERROR - 일반적인 함수선언문 사용못함
+                show: function(){
+                    //document.write('show!!<br>');
+                    //객체의 멤버변수값 출력
+                    //document.write( name +" , " + age +"<br>"  ); // name, age라는 변수를 인식하지 못함
+                    //JS에서는 멤버변수를 지징할때는 반드시 this 키워드 필요
+                    document.write( this.name +", "+ this.age +"<br>"  );
+                }
+            };
+
+            //객체의 멤버(속성)출력
+            document.write( person.name +", " );
+            document.write( person.age +"<br>");
+
+            //객체의 멤버함수(메소드) 호출
+            person.show();
+
+            //같은 능력을 가진 객체를 또 하나 만들고 싶다면
+            //리터럴객체 생성방법은 멤버 정의하는 코드를 또 써양함
+            var person2= {
+                //멤버변수
+                name: "robin",
+                age: 25,
+
+                //멤버함수
+                show:function(){
+                    document.write("show : " + this.name+" , "+ this.age+"<br>");
+                },
+
+                //2번째 멤버함수 - 파라미터
+                add:function(a, b){
+                    var c= a+b;
+                    document.write( "add : " + c + "<br>") ;
+                }
+            };
+
+            person2.show();
+            person2.add(5, 3);
+            person2.add(5);
+
+            person2.show(4, 8); //파라미터 없는 함수에 값 전달 - 아무 문제 없음
+
+            //없는 메소드를 호출하면 error
+            //person.add(4, 8);
+
+            //JS는 유연한 언어여서 객체의 멤버도 나중에 추가할 수 있음
+            person.tel="01012345678"; //새로운 property 추가됨
+            document.write("name : " + person.name+", ");
+            document.write("age : " + person.age+", ");
+            document.write("tel : " + person.tel+"<br>");
+
+            //멤버함수도 추가할 수 있음
+            person.out= function(){
+                document.write("out : " + this.name+", "+ this.age+", "+this.tel+"<br>");
+            };
+
+            person.out();
+
+            //값을 대입하지 않은 멤버변수(속성)을 출력하면?
+            document.write(person.addr); //undefined
+
+            document.write("<hr>");
+
+            // 리터럴 객체를 객체마다 새로이 멤버를 만들어 줘야 해서
+            // 같은 객체를 만들때 불편함
+
+            //2. 생성자함수를 이용한 객체생성 [new 키워드로 객체생성] - native언어들과 비슷한 방법
+            //객체 설계도 정의
+            function Student(){
+                //멤버변수 [this.키워드 사용]
+                this.name= "aaa";
+                this.age= 20;
+                this.major= "android";
+
+                var aaa="aaaa"; //이건 지역변수임
+                addr= "seoul"; //이건 전역변수
+
+                this.show= function(){
+                    document.write("student show : "+ this.name+", "+this.age+", "+this.major+"<br>");
+                } 
+
+                //멤버변수에 값을 대입해주는 기능메소드
+                this.setMembers= function(name, age, major){
+                    this.name= name;
+                    this.age= age;
+                    this.major= major;                                        
+                }               
+            }
+
+            //객체 생성
+            var s= new Student();
+            s.show();
+            document.write("aaa : " + s.aaa+"<br>"); //undefined
+            document.write("addr : " + s.addr+"<br>");//undefined
+            document.write("addr : " + addr+"<br>"); //addr은 전역변수
+
+            var s2= new Student();
+            s2.name="bbb";
+            s2.age=25;
+            s2.major="web";
+            s2.show();
+
+            //멤버값들을 일일이 대입하는 것은 코드가 길어짐
+            //멤버값을 대입해주는 기능(함수)를 이용
+            var s3= new Student();
+            s3.setMembers("ccc", 30, "ios");
+            s3.show();
+
+
+            //언제나 객체 new 한후에 set메소드를 호출하는 것도 짜증!
+            //new하면서 멤버값을 초기화하는 값 전달[생성자함수]
+            function Stu(name, age, major){
+                this.name= name;
+                this.age= age;
+                this.major= major;
+
+                this.show=function(){
+                    document.write(this.name+", "+this.age+", "+this.major+"<br>");
+                }
+            }
+
+            var stu= new Stu("sam", 20, "webapp");//생성자함수에 값 전달
+            stu.show();
+
+            /////////////////추가적인 내용 /////////////
+
+            // in키워드 : 연산자
+            document.write( 'name' in stu ); //stu객체안에 'name'이라는 멤버가 있는가? true / false
+            document.write( 'addr' in stu );
+
+            // 객체안에 멤버가 또 다른 객체
+            document.write("<hr>");
+            var flight={
+                airline: 'Korean air',
+                number: 777,
+                arrival: {
+                    nation: 'japan',
+                    city:'tokyo'
+                }
+            };
+
+            document.write( flight.airline+"<br>" );
+            document.write( flight.arrival.nation +"<br>");
+            document.write("<hr>");
+
+            //리터럴객체의 단점 보완
+            //객체 clone기능
+            var p1={
+                name:"aaa",
+                age:20,
+                show:function(){
+                    document.write(this.name+", "+this.age+"<br>");
+                }
+            }
+            p1.show();
+
+            var p2= Object.create(p1);//p1객체의 clone객체 생성
+            p2.show();
+
+            p2.name="bbb";
+
+            p1.show();
+            p2.show();
+
+
+
+
+
+
+        </script>
+
+    </head>
+    <body>        
+    </body>
+</html>

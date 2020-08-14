@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>table ex</title>
+        <meta charset="utf-8">
+        <style>
+            table{
+                border: 2px solid ;
+                /* 줄을허물겠다 */
+                border-collapse: collapse;
+                text-align: center;
+            }
+            td,th{border: 2px solid;padding: 10px 5px;}
+            th{background-color: chartreuse;font-family: cursive;} 
+            
+            /* 짝수만 색칠해보기 */
+            tr:nth-child(2n){background-color: yellow;}
+            td:first-child{width: 40%;}
+            th{border-bottom: double red;}
+            /* table의 자식: 적용안됨 왜? 보이지는않지만
+            기본적으로 table의 첫번째 자식은 tbody라는 요소가있다. */
+            table>:nth-child(1){border:10px dotted blueviolet;}
+
+            
+
+            /* table의 자손 tr */
+            table tr{ color: green;}
+
+        </style>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <th>이름</th>
+                <th>이메일</th>
+                
+            </tr>
+            <tr>
+                <td>김철수</td>
+                <td>sdfknsd@naver.com</td>
+            </tr>
+            <tr>
+                <td>김영희</td>
+                <td>sdfssnsd@naver.com</td>
+            </tr>
+            <tr>
+                <td>김수진</td>
+                <td>sgsd@naver.com</td>
+            </tr>
+            <tr>
+                <td>바부야</td>
+                <td>sdvsvnsd@naver.com</td>
+            </tr>
+        </table>
+    </body>
+</html>

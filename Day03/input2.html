@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>input ex 2</title>
+        <meta charset="utf-8">
+    </head>
+
+<body>
+    <!-- file 선택기  enctype은 무조건 써야하는 값이다. multipart/form-data로 파일을보낸다. 안드로이드도 이 기능이 적용되었음.-->
+    <form action="./file.php" method="POST" enctype="multipart/form-data">
+    <input type="file" name="aaa" accept="image/png">
+    <!-- 파일의 타입도 지정하여서 볼수있다 -->
+    <input type="submit">
+    </form>
+    
+    <hr>
+
+    <!-- 여러파일을 한번에 전송하기 -->
+    <form action="./file2.php" method="POST" enctype="multipart/form-data">
+        <input type="file" name="bbb[]" multiple>
+        <!-- multiple을 쓰면 파일을 여러게 잡는것이가능하다. -->
+    
+        <input type="submit">
+    </form>
+
+    <hr>
+
+    <!-- 다양한 입력 type 들(브라우저마다 모양 다름) -->
+    <!-- 브라우저마다 지원하는 범위가 다름,안되는 브라우저도있다. -->
+
+    <input type="date"><br>
+    <input type="datetime"><br>
+    <input type="datetime-local"><br>
+    <!-- 색상 -->
+    <input type="color"><br>
+    <!-- 이메일 (모바일에서 열떄 소프트 키페드가 다르다)-->
+    <input type="email"><br>
+    <!-- 전화번호  -->
+    <input type="tel"><br>
+    <!-- 인터넷 주소 -->
+    <input type="url"><br>
+
+    <!-- 검색입력 -->
+    <input type="search"><br>
+
+    <!-- 새롭게 추가된 속성들  모바일에서는 안됨.-->
+
+    <!-- 아무것도없다면 아무것도없다고 말해주기 -->
+    <form action="">
+        <input type="text" required>
+        <input type="submit">
+    </form>
+    <!-- 읽기 전용 안써짐-->
+   <input type="text" readonly> 
+   <!-- 페이지 로딩되면 자동 포커스 받기 -->
+   <input type="text" autofocus>
+   <!-- 최대 글자수 제한 -->
+   <input type="text" maxlength="5">
+   <br>
+   <!-- 자동완성기능 : <datalist>와 함께 사용 -->
+    <input type="text" autocomplete list="datas">
+    <!-- 자동완성으로 보여줄 항목리스트 -->
+    <datalist id="datas">
+        <option value="캐나다" label="캐나다"></option>
+        <option value="중국" label="중국"></option>
+        <option value="한국" label="한국"></option>
+    </datalist>
+
+   <input type="text" autocapitalize>
+
+   <!-- 유효성 검사: 입력형식에 맞지않는 값을 검사 -->
+
+   <!-- 정규표현식 -->
+   <form action="">
+       이메일:
+       <!-- 이메일에 들어가는 글자들의 패턴을 내가 검사해서 통과시킬수있습니다 -->
+       <!-- 영문자나 숫자 1개 이상이고 @다음에 영문자 1개 이상 이어야함. -->
+       <!-- 유효성검사 . 나중에 에러를 방지하기 위해 패턴을 저장시킵니다 -->
+       <input type="text" pattern="[a-zA-z0-9!#]+@[a-zA-z]+">
+       <input type="submit">
+   </form>
+
+   <form action="">
+    전화번호:
+    <!-- 첫숫자는 2~3자리,두번째 3~4자리, 세번쨰 4자리 -->
+    <input type="text" pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}">
+    <input type="submit">
+</form>
+
+
+
+
+
+</body>
+</html>

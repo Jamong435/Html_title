@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>layout</title>
+        <meta charset="utf-8">
+
+        <style>
+            header{
+                background-color: yellow;
+                width: 100%;
+                height: 100px;
+            }
+
+            nav{
+                width: 30%;
+                background-color: red;
+                height: 200px;
+                float: left;
+            }
+
+            section{
+                width: 70%;
+                background-color: aqua;
+                height: 200px;
+                float: right; 
+            }
+
+            footer{
+                background-color: grey;
+                width: 100%;
+                height: 50px;
+                clear: both;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrapper">
+            <header>
+                <h1>My Blog</h1>
+            </header>
+            <nav>
+                <h3>menu</h3>
+                <ul>
+                    <li><a href="http://www.naver.com">aaa</a></li>
+                    <li><a href="./aaa.html">aaa</a></li>
+                    <li><a href="">aaa</a></li>
+                </ul>
+
+                <figure>
+                    <img src="./pome.png" alt="">
+                    <!-- figcaption: 이 요소의 값을 구글에서 검색하면 위 이미지가 노출됨 -->
+                    <figcaption>포메리안</figcaption>
+                </figure>
+            </nav>
+            <section>
+                <article>
+                    <h1>semantic tags</h1>
+                    <p>askljdflkajsdfk alskdjflkajs alskdjf</p>
+                </article>
+
+                <article>
+                    <h1>second article</h1>
+                    <p>askljdflkajsdfk alskdjflkajs alskdjf</p>
+                </article>
+            </section>
+            <footer>
+                <!-- address 요소 : 구글 검색에 노출됨 -->
+                <address>서울시 왕십리 192</address>
+            </footer>
+        </div>
+    </body>
+</html>

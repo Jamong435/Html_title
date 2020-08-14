@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            //리터럴객체든, 생성자함수를 이용하든 만들어진 모든 객체는 모두 멤버메소드를 객체마다 보유하고 있음.
+            //자바나 c++같은 언어에서는 객체마다 메소드를 가지고 있지 않음. 
+            function Person(name, age){
+                this.name= name;
+                this.age= age;
+            }
+
+            //Person자료형에 하나만 존재하는 메소드
+            //prototype =static이라고생각하면된다.
+            Person.prototype.show= function(){
+                document.write(this.name+", "+this.age+"<br>");
+            }
+
+            var p= new Person("sam", 20);
+            var p2= new Person("robin", 25);
+
+            p.show();
+            p2.show();
+
+            //prototype메소드는 여러개 가능함
+            Person.prototype.getName= function(){
+                return this.name;
+            }
+
+            document.write( p.getName() +"<br>");
+
+            // prototype은 변수도 가능함 [ 자바의 static 멤버변수와 같은 역할 : 클래스변수 ]
+            Person.prototype.address= "seoul";
+
+            document.write("p1 addr : " + p.address+"<br>");
+            document.write("p2 addr : " + p2.address+"<br>");
+
+            //값을 변경할 때 주의!!!
+            p.address= "busan"; //prototype변수의 값 대입은 명시적으로 prototype을 써야함. 안쓰면 새로운 인스턴스변수 addr이 p에 추가된 것임
+            document.write("p1 addr : " + p.address+"<br>");
+            document.write("p2 addr : " + p2.address+"<br>");
+
+            Person.prototype.address="incheon";
+            document.write("p1 addr : " + p.address+"<br>");
+            document.write("p2 addr : " + p2.address+"<br>");
+
+
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

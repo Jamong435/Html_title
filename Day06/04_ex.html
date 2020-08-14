@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ex04</title>
+        <meta charset="utf-8">
+        <style>
+            /* display속성 */
+            /* 블럭요소를 인라인 요소로 */
+            #aa{ display: inline;}
+            #aa{display: inline-block; width: 300px;}
+
+            /* 인라인 요소를 블럭요소로 */
+            img{display: block;}
+            /* display의 none값 적용: 디스플레이를 하지않음.즉,그려내지않음*/
+            /* li.bb{display:none}  */
+            li{display: inline;margin-right: 20px;}
+            /* 공간은 차지하고 보이지않음 */
+            li.bb{visibility: hidden;}
+        </style>
+        <style>
+            #one{
+                background-color: goldenrod;
+                width: 200px;
+                height: 50px;
+            }
+
+            /* pistion연습
+            1)static: 원래 놓여질 자리에 놓여지는값
+            2)relative: 원래 놓여질 자리에서 특정좌표로 지정가능
+            3) */
+
+            div.aaa{position: relative;}
+            #two{
+                position: static;
+                /* static은 left같은 좌표 지정값안먹음 */
+                position: relative;
+                /* 중요! realative는 원래자리를 기준으로 좌표지정합니다 */
+                position: absolute;
+                
+                /* 좌표값을 안주면 이 html문서를 좌하단을 기준으로 반영 */
+                /* absolute속성을 지정한 요소의 부모요소가 
+                positon="static"아니면 이 absoulte는 부모의 좌상단을 기준으로 함
+                relative를 부모객체를가지면 html전체가아닌 relative 위치안을 
+                기준점을함. */
+
+                position: fixed;
+                /* 고정 left right top같은 좌표를 지정해야 보인다*/
+
+
+                left: 50px;
+                top: 30px;
+                background-color: green;
+                width: 200px;
+                height: 50px;
+            }
+            #three{
+                background-color: saddlebrown;
+                width: 200px;
+                height: 50px;
+            }
+        </style>
+    </head>
+    <body>
+        <p id="aa">hello world</p>
+        <a href="#">goodday</a>
+        <strong>good mornig</strong>
+        <img src="./food_5.png" alt="이미지안보임">
+        <hr>
+        <ul>
+            <li>aaa</li>
+            <li class="bb">bbb</li>
+            <li>ccc</li>
+        </ul>
+
+        <hr>
+        <!-- 블럭요소와 인라인요소를 같이사용할때 고려할것들. -->
+        <!-- 블럭요소안에 다른 블럭,인라인 요소를 넣을수있음. -->
+        <div style="background-color: tomato;border: solid; padding: 5px;">nice 
+            <p>aaa</p>world</div>
+
+            <!-- 인라인요소안에는 블럭을 넣을수없음(되긴함 허나 이상해짐) -->
+            <span style="background-color: grey;border: solid; padding: 5px;">nice<p>aaa</p>world</span>
+
+            <!-- 블럭요소안에 같은 블럭요소를 넣으면 이상해짐 
+            html은 엔드테그가없어도 알아먹기때문에 문제가생기는거임.-->
+            <p style="background-color: gold;border: solid; padding: 5px;">nice <p>aaa</p> world</p>
+
+            <h2>Helloworld<h2>dddd</h2>hii</h2>
+            <!-- 가급적 요소안에 요소를 넣으때는 줄바꿈으로 명시적으로 -->
+            <div>
+                <h1>aaa</h1>
+                <p>sdfsdf</p>
+            </div>
+            <hr>
+            <!-- positon속성 -->
+            <div class="aaa">
+                <p id="one">block#1</p>
+                <p id="two">block#2</p>
+                <p id="three">block#3</p>
+            </div>
+    </body>
+</html>

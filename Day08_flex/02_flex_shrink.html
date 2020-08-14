@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            display: flex;
+        }
+        .container>div{
+            background-color: aqua;
+            color: blue;
+            width: 100px;
+            margin: 10px;
+            line-height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div>1</div>
+        <div>2</div>
+        <div style="flex-shrink: 0;">3</div> 
+        <!-- 다른요소들에비해 0만큼줄어들겠다.,즉 안줄어든다 -->
+        <div>4</div>
+        <div>5</div>
+        <div style="flex-shrink: 1;">6</div>
+        <!-- 1:1로 줄어들겠다. 보통이라는소리다 -->
+        <div>7</div>
+        <div>8</div>
+        <div style="flex-shrink: 2;">9</div>
+        <div>10</div>
+
+        <!-- 3.flex-shrink: 나머지 flex아이템과 비교하여 이
+        요소를 알아야한다 -->
+        
+    </div>
+</body>
+</html>

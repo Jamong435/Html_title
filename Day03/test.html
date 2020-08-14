@@ -1,0 +1,72 @@
+        <!DOCTYPE html>
+        <html>
+        <body>
+            *input type만 바꿔주면 ui는 내가 설정하지않아도 바뀐다.
+            <form action="input.jsp" method="post">
+            이메일 : <input type="email" name="email" /><br />
+            URL :    <input type="url" name="url" /><br />
+            전화번호 :<input type="tel" name="tel" /><br />
+            색상 :    <input type="color" name="color" /><br />
+            월 :   <input type="month" name="month" /><br />
+            날짜 :   <input type="date" name="date" /><br />
+            주 :   <input type="month" name="week" /><br />
+            시간 :    <input type="time" name="time" /><br />
+        
+        
+            지역 시간 :    <input type="datetime-local" name="localdatetime" /><br />
+            숫자 :    <input type="number" name="number" min="1" max="10" step="2"/><br />
+            범위 :    <input type="range" name="range" min="1" max="10" step="2" /><br />
+            
+            
+        
+    <form action="">
+        아무것도없다면 아무것도없다고 말해주기:<input type="text" required>
+        <input type="submit">
+    </form>
+    읽기 전용 안써짐:
+   <input type="text" readonly> <br>
+   페이지 로딩되면 자동 포커스 받기:
+   <input type="text" autofocus><br>
+   최대 글자수 제한:
+   <input type="text" maxlength="5">  <br>
+ 
+   자동완성기능 
+    <input type="text" autocomplete list="datas">
+    <!-- 자동완성으로 보여줄 항목리스트 -->
+    <datalist id="datas">
+        <option value="캐나다" label="캐나다"></option>
+        <option value="중국" label="중국"></option>
+        <option value="한국" label="한국"></option>
+    </datalist><br>
+
+
+
+   유효성 검사: 입력형식에 맞지않는 값을 검사
+
+   <!-- 정규표현식 -->
+   <form action="">
+       이메일:
+       <!-- 이메일에 들어가는 글자들의 패턴을 내가 검사해서 통과시킬수있습니다 -->
+       <!-- 영문자나 숫자 1개 이상이고 @다음에 영문자 1개 이상 이어야함. -->
+       <!-- 유효성검사 . 나중에 에러를 방지하기 위해 패턴을 저장시킵니다 -->
+       <input type="text" pattern="[a-zA-z0-9!#]+@[a-zA-z]+">
+       <input type="submit">
+   </form>
+
+   <form action="">
+    전화번호:
+    <!-- 첫숫자는 2~3자리,두번째 3~4자리, 세번쨰 4자리 -->
+    <input type="text" pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}">
+    <input type="submit">
+</form>
+
+            
+            
+            
+            
+            </form>
+        </body>
+        </html>
+        
+    
+  

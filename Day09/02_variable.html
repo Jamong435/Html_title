@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //이 영역 안에서는 js문법체계를 따름.
+        
+        //자료형의 종류
+        //1.수치형 :number -정수,실수    //number와는 다른 자료형
+        //2.문자형 :String -한문자,문자열'',""
+        //3.논리형 :boolean-true,false
+        //4.객체형 :object,내장,함수[new키워드 존재. 무조건쓰는게아니다.]
+        //5.undefined:값이 없는 변수의 자료형.
+
+        //변수선언.
+        var a;
+        a=10;
+        
+        document.write(a);
+        document.write("<br>");
+
+        // 자료형이 구분없이 변수 선언
+        var b="aaa";
+        document.write(b);
+        document.write("<br>");
+
+        var c=true;
+        document.write(c);
+        document.write("<br>");
+
+        // 여기까지 기본 자료형.
+        
+        var d=new Date();
+        document.write(d);
+        document.write("<br>");
+
+        var e;
+        // 값을 지정하지않으면 undefined가 나온다 '정의되지않았다.'
+        document.write(e);
+        document.write("<br>"+"<hr>");
+        //변수에 값이 대입될때 자료형이 결정남.[동적타이핑 언어]
+        //자료형 확인하는 함수.
+        document.write(typeof(a)+"<br>");
+        document.write(typeof(b)+"<br>");
+        document.write(typeof(c)+"<br>");
+        document.write(typeof(d)+"<br>");
+        document.write(typeof(e)+"<br>");
+
+        document.write("<hr>");
+
+        //아래는 당연히 스트링 타입임
+        var f="1";
+        document.write(f+"<br>");
+        document.write(typeof(f)+"<br>");
+
+        //변수에 값이 대입될떄 자료형이 결정되므로
+        //변수가 가지고있는 자료형이 변경될수도 있음.
+        var g=10;//number
+        document.write(g);
+        document.write(typeof(g)+"<br>");
+
+        var g="kim";//String
+        document.write(g);
+        document.write(typeof(g)+"<br>");
+
+        //심지어 함수도 변수에 대입이가능함.
+        var h= function(){
+        document.write("hhh");
+        document.write("<br>");
+        }
+        document.write(h+"<br>");
+        document.write(typeof(h));
+        //함수를 참조하고있는 변수명으로 함수호출가능함.
+        h();
+
+        //문자열은 참조형 객체가 맞음[즉,문자열은 객체 메소드가있다.]
+        var s="hello";
+        document.write(s.length);
+        document.write("<br>");
+        //특정글자만보이기
+        document.write(s.charAt(1));
+        document.write("<br>");
+        // 글자바꾸기
+        document.write(s.replace("l","p"));
+        document.write("<br>");
+
+        // 사용자(프로그래머)정의 객체형-js에는 class라는 문법이 없음(ECMAscript 5버전때부터 class키워드가생김)
+        var p={name:"sam",age:20};//js클래스정의및객체생성
+        document.write(p.name);
+        document.write('<p>');
+        document.write('name:'+p.name+",");
+        document.write('age:'+p.age);
+        document.write('</p>');
+        document.write("<hr>");
+
+        //같은 변수명을 선언해도 에러가아님.
+        var x=10;
+        document.write(x);
+        document.write("<br>");
+
+        var x=20;
+        document.write(x);
+        //새로운 변수정의가생기면 계속 대입함.
+
+        //이렇게 아무대입을안하면 그전값을 씀.
+        var y=50;
+        var y;
+        document.write(y);
+        document.write("<br>");
+        document.write("<hr>");
+
+        //수치형 값중 실수(소수점있는 숫자)값 표기법
+        var z=3.14;
+        document.write(z);
+        document.write("<br>");
+        var z=123.5e3
+        document.write(z);
+        document.write("<br>");
+        var z=123.5e-3;
+        document.write(z);
+        document.write("<br>");
+    
+    
+
+        
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

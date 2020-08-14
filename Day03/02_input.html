@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>input test</title>
+        <meta charset="utrf-8">
+        
+    </head>
+    <body>
+        <input type="text" size="22" name="in01">text<br>
+        <!-- 기본적으로 20글자. 한줄입력 name은 서버에 주고받을 식별자 입니다.-->
+        <input type="password">password
+        <hr>
+
+        <!-- 라디오버튼은 name의값이 같아야 한그룹으로봅니다
+             버튼을누르면 value값이 서버에 넘어가는것입니다-->
+        라디오버튼:
+        <input type="radio" name="rg" value="female">여성
+        <input type="radio" name="rg" value="male"> 남성
+
+        <hr><br>
+        <!-- <label>을 사용하면 글씨를 클릭해도 선택되도록 할수있음. -->
+
+            <input type="radio" name="rg2" value="aaa" id="rb1" checked="">
+            <label for="rb1">aaa</label>
+            <!-- rb1을위해 라벨을 만들었고 aaa라는 글을 썼습니다라는것입니다 -->
+            <input type="radio" name="rg2" value="bbb" id="rb2">
+            <label for="rb2">bbb</label>
+            <!-- rb1을위해 라벨을 만들었고 aaa라는 글을 썼습니다라는것입니다 -->
+
+            <hr>
+        
+            
+            <!-- 체크박스버튼, 역시 같은 name을 사용 -->
+        <!-- <label>요소안에 input요소를 넣으면 자동 for속성처럼 사용 가능 -->
+        <label><input type="checkbox" name="fruits" value="apple">Apple</label>
+        <label><input type="checkbox" name="fruits" value="orange">Orange</label>
+        <label><input type="checkbox" name="fruits" value="banana">Banana</label>
+
+        <!-- php에서는 선택된 checkbox들의 value 값이 배열로 전달됨 키는:fruite -->
+
+        <br>
+        <br>
+
+        <input type="submit" value="전송">
+        <!-- 텍스트를 바꾸는건 value-->
+        <input type="reset" value="리셋">
+
+        <hr>
+
+        <!-- 버튼만드는방법 -->
+        <!-- 1.type ="button" -->
+        <input type="button" value="중복" onclick="alert('중복된id입니다')"><br>
+
+        <!-- 2.<button>요소 -->
+        <button onclick="alert('click!')">button</button>
+        <!-- <form>요소 안에서는 <button>요소의 동작에 오류가 다소 발생함 -->
+            <br>
+            <br>
+        <!-- 3.이미지 버튼 -->
+
+        <button onclick="alert('이미지')"><img src="bnt01.png" alt="이미지없어여"></button>
+        <input type="image" src="bnt01.png">
+        <!-- form요소 안에서 사용하면 submit과 같은 역활 -->
+
+        <a href="./01_ex.html"><img src="bnt01.png"></a>
+
+        <hr>
+
+        <!-- 여러줄입력 textarea cols rows는 그정도만쓸수있다는게아니라
+            사이즈 설정이다 -->
+        <textarea name="ta" cols="30" rows="10"></textarea>
+
+        <!-- 콤보박스:<select> -->
+        <select name="slec">
+
+            <option value="aaa">aaa</option>
+            <option value="bbb">bbb</option>
+            <option value="ccc">ccc</option>
+
+        </select>
+        
+        
+        <!-- optiongroup -->
+    
+        <select name="se12">
+            <optgroup label="중식">
+                <option value="aaa">aaa</option>
+                <option value="bbb">bbb</option>
+                <option value="ccc">ccc</option>
+            </optgroup>
+            <optgroup label="일식">
+                <option value="111">111</option>
+                <option value="222">222</option>
+                <option value="333">333</option>
+            </optgroup>
+        </select>
+
+        <hr><br><br>
+
+        <!-- fieldset: 영역을 그룹(테두리선과 라벨적용) -->
+
+        <fieldset>
+            <!-- 제목 -->
+            <legend>인적사항</legend>
+            <label>이름:<input type="text"></label><br>
+            <label>주소:<input type="text"></label><br>
+            <label>번호:<input type="text"></label><br>
+            <label>빠밤:<input type="text"></label><br>
+
+        </fieldset>
+
+        <!-- 데이타를 왔다갔다하는데 웹앱에서 -->
+
+
+
+
+    </body>
+</html>

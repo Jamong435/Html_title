@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>미디어커리</title>
+   <meta charset="utf-8">
+   
+   <style>
+      
+       #aa{
+           width: 320px;
+           height: 100px;
+           background-color: green;
+       }
+    
+       @media(min-width: 680px){
+        #aa{
+           width: 680px;
+           height: 200px;
+           background-color: yellow;
+       }
+       }
+   </style>
+    
+   
+    <link rel="stylesheet" href="./02_media.css" media="(min-width:750px) and (max-width:840px)">
+    <style media="(min:width:840px)">
+    #aa{
+        width: 860px;
+        height: 400px;
+        background-color: aqua;
+    } 
+
+    </style>
+
+    </head>
+    <body>
+        <div id="aa"></div>
+    </body>
+</html>

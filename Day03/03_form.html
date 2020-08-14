@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>form연습</title>
+        <meta charset="utf-8">
+    </head>
+
+    <body>
+        
+        <!-- form요소 : 계념은 anchor와 비슷합니다. anchor처럼 다른 문서를 실행하는것입니다
+        다만, 데이터를 전달할수있다는것이 다릅니다.-->
+        <!-- 1.GET Method form 연습 -->
+        <!-- 제출하면 실행되는문서 action get방식으로 보내겠습니다. 라는뜻 -->
+        <form action="./getTest.php" method="Get">
+            <!-- 식별자 title,msg -->
+        
+            <input type="text" name="title">
+            <input type="text" name="msg">
+
+            <!-- 이 제출버튼을 클릭하면 form요소의 action속성에 지정된 문서가 실행됨.
+            즉. 브라우저의  현재 페이지가 변경됨.- 주소창 확인 
+              안드로이드처럼 데이타만 날라가겠지..하고생각하면 안됩니다.-->
+            <input type="submit">
+            <!-- 이버튼을 누르면 gettest.php를 실행한다는것(페이지가바뀜)입니다 
+            file:///D:/Web/Day03/getTest.php?title=title&msg=msg 이렇게 바뀝니다.-->
+        </form>
+
+        <!-- 2.POST Method Form 연습 -->
+
+        <form action="./postTest.php" method="POST">
+            <fieldset>
+
+                <legend> input& post method test</legend>
+                <label for="in">name:</label>
+                <input type="text" id="in" name="name">
+                <!-- type은 택스트고 아이디는 in이고 value값은 name입니다 -->
+                <br>
+                <label>password:<input type="password" name="pw"></label>
+                <br>
+                <p>
+                    <!-- br귀찮다 p로만들자 -->
+                    gender:
+                    <label><input type="radio" name="rg" value="male" checked="checked">male</label>
+                    <label><input type="radio" name="rg" value="female">female</label>
+                </p>
+                <p>
+                    fruits:
+                    <label><input type="checkbox" name="fruits[]" value="apple">사과</label>
+                    <label><input type="checkbox" name="fruits[]" value="banana" checked="">바나나</label>
+                    <label><input type="checkbox" name="fruits[]" value="watermelon">수박</label>
+<!-- 반드시 name에[] 배열을만들어야합니다 , banana에 체크를 먼저되있습니다 안에 ""아무것도 없는이유는
+이름이 같으면 값을안써도된다는걸 보여준것입니다 -->
+                </p>
+
+                <p>
+                    message:
+                    <textarea name="msg" cols="40" rows="5"></textarea>
+                </p>
+                <div>
+                    <select name="sel">
+                        <optgroup label="자동차브랜드">
+                            <option value="현대">현대</option>
+                            <option value="기아">기아</option>
+                            <option value="쉐볼">쉐볼</option>
+                        </optgroup>
+
+
+                    </select>
+                </div>
+
+                <div>
+                    <input type="submit"><br>
+                    <input type="reset">
+                </div>
+
+
+                <!-- 화면에는 안보이지만 서버에 보내고 싶을때. -->
+                <input type="hidden" name="aaa" value="good">
+
+
+            </fieldset>
+        </form>
+
+
+    </body>
+</html>

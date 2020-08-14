@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>fonttest</title>
+        <meta charset="utf-8">
+        <style >
+            
+            /* c드라이브들어가면 font에 내가 쓸수있는거보인다. */
+        p{font-family: "Ravie",serif;}
+        p{font-family: "휴먼메딕체",sans-serif;}
+        h1{font-family: "SimHei",sans-serif;}
+        h2{font-family: "MS Gothic",sans-serif;}
+        p{font-family: cursive;}
+        p{font-family: fantasy;}
+        p{font-family: monospace;}
+        /* 사용자정의 글꼴: 웹폰트 */
+        @font-face {
+            font-family: "My font";
+            src: url("./aaa.ttf");
+        }
+        /* 웹폰트 적용하기 */
+        p{font-family: "My font",serif;}
+
+        /* 글씨 사이즈 */
+        p{font-size: 50px;}
+        p{font-size: 50%;}
+        /* 1.5배 */
+        p{font-size: 1.5em;}
+        /* bold,normal 글꼴을넣으면 안먹을수있다*/
+        p{font-weight: bold;}
+        /* italic (필기체 느낌 기울기), oblique(그냥기울기)*/
+        p{font-style: italic;}
+        p{font-style: oblique;}
+        /* 폰트 속성들 한번에 설정하기(축약형) :순서[weight/style] size family */
+        p{font: bold italic 2em "휴먼매직체";}
+
+        /* 텍스트정렬 */
+        p{text-align: justify;}
+        p{text-align: center;}
+
+        /* 텍스트 변환 */
+        /* 단어의 첫글자 대문자 */
+        P{text-transform: capitalize;}
+        P{text-transform: uppercase;}
+
+        /* 텍스트 줄긋기(장식) */
+        p{text-decoration: line-through;}
+        p{text-decoration: none;}
+
+        /* 텍스트 그림자 x y z 위,아래 ,떠있는거 */
+        p{text-shadow: 5px 3px 5px red;}
+        /* 워드랩 */
+        p.bravo{color: royalblue;
+        font-size: 50px;
+        
+            width: 5em;
+            border: 1px solid blue;
+            /* 워드랩이 없으면 긴글씨는 영역을 벗어납니다[한글은 자동워드랩] */
+            word-wrap: break-word;
+           
+        }
+        #dd{
+            column-count: 3;
+            column-gap: 60px;
+            column-rule: 4px dashed green;
+        }
+        
+
+
+
+        </style>
+    </head>
+    <body>
+        <p>hello</p>
+        <p>안녕하세요</p>
+        <p id=dd> Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe totam adipisci odit, quae provident soluta, nemo, repudiandae at reprehenderit necessitatibus autem quos doloremque. Totam aut modi, libero natus eius eaque?</p>
+        <h2>こんにちは</h2>
+        <h1>你好，我不想去</h1>
+
+        <p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis minima quis, odit necessitatibus, soluta aliquam quo molestias debitis cum nam nesciunt minus laudantium voluptas tempora deserunt? Voluptas temporibus quis quaerat!</p>
+        <p class="bravo">한글은 전혀 문제 없이 자동으로 워드랩됩니다
+            Losdnfsdnfsdlkfnlskdnflskdnflsdknfsdklfsndkfsdklfn
+        </p>
+
+        <div style="text-align: center; background-color: burlywood;">hello</div>
+        <span style="text-align: center; background-color: aqua">nice</span>
+    </body>
+</html>
