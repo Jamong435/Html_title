@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>예외처리</title>
+    <script>
+    // alert('aaa');//여기서 에러
+    document.write("예외처리...<br>")
+    //에러가 발생해도 그부분만 실행되지않고 나머지는
+    //정상적으로 실행되도록 하는 기법
+    try{
+        alrt('aaa');
+    }catch(e){
+        document.write(e+"<br>");
+    }
+    
+    try{
+        aaa();
+    }catch(e){
+        document.write("error!<br>");
+    }finally{
+        document.write("여기는무조건실행<br>");
+    }
+    
+    function aaa(){ //이게있으면 에러가안나겠죠?
+        document.write("aaa<br>");
+    }
+    //throw-일부러 에러를 발생해서 예외상황 처리
+    try{
+        var a=10;
+        var b=15;
+        var c= a-b;
+        if(c<0) throw "음수결과는 안됨"; //조약문을 여기다가 써놓은다
+
+        document.write("결과:"+c+"<br>");
+    }catch(e){
+        document.write("에러:"+e+"<br>");
+    }
+    </script>
+    <!-- 객체 json 변환 -->
+    <script>
+        document.write("<hr><hr>");
+        //js객체-> json문자열로 변환
+         //new가없는 표기법 리터럴함수라고 부른다.
+        var person={
+            name:"sam",
+            age:20,
+            male:true,
+            test: {aaa:"aaa",bbb:"bb"}, //객체안에 또다른 객체가 있을수있을까?
+            //person.test.aaa="aaa";
+
+            //멤버함수 : 메소드도만들어볼까? "json안에서 함수는 포함되지않.는.다"
+            show: function(){
+                document.write("show..<br>");
+            }
+        };
+        //객체를 json문자열로 변환시켜본다
+        //객체에는 sam 20 true라는 value가 있는데 이렇게 서버에보내면
+        //못알아들으니까. json문자열을 보낸다
+        //그런데 sam20true이렇게 보내면 뭐가뭔지 어떻게 알아?
+        //[],[],[] 이렇게 보내면 csv의방식이다.
+        //우리는 {"name":"sam","age":"20","male":"true"}이렇게 문자열!로보내는
+        //규칙이있는걸 우리가 json이라 읽는다 .객체를 json화시켜보자!
+
+        var json=JSON.stringify(person);
+        document.write(json+"<br>");
+
+        //반대로 json문자열을 객체 변환하는것을 알아보자!
+        var jsonStr='{"name":"bmw","model":520,"color":"red"}';
+        var car= JSON.parse(jsonStr);
+        document.write(car.name+"<br>");
+        document.write(car.model+"<br>");
+        document.write(car.color+"<br>");
+
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>
