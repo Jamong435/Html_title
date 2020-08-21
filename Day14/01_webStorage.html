@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+     
+        <h2 id="aa"></h2>
+        <hr>
+        <h2 id="bb"></h2>
+        <script>
+            //웹스토리지 :웹문서(html)가 데이터를 사용자의
+            //컴퓨터에 저장할수 있도록 하는기법(일종의 쿠키(4KB)): 웹스토리지는 5mb
+            // 웹 스토리지..2가지 저장소
+            //1.localStorage - 같은 도메인은 같은 저장소 공유 //브라우저껐다키더라도 정보를가지고있다
+            //조회수를 구하는 코드를써보자
+            if(!localStorage.bb){
+                localStorage.bb=0;
+            }
+            //기존의 cnt값 1증가 (무조건 저장값은 string 임)
+            localStorage.bb=parseInt(localStorage.bb)+1;
+            document.getElementById('aa').innerHTML=localStorage.bb+"번째방문임다!";
+            
+            //2.seissonStorage - 같은 도메인은 같은 저장소 공유 //브라우저끄면 없어짐.
+            //ex 같은 닷홈에만있으면 사용가능하다는것
+            if(!sessionStorage.cnt){
+                sessionStorage.cnt=0;
+            }
+            sessionStorage.cnt=parseInt(sessionStorage.cnt)+1;
+            document.getElementById('bb').innerHTML=sessionStorage.cnt+"방문";
+
+        </script>
+    <hr>
+    <a href="./aaa.html">aaa.html로이동</a>
+
+</body>
+</html>

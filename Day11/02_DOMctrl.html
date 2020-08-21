@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <!-- dom노드의 삭제와 동적생성 및 추가 -->
+    <button onclick="addtext()">add Text node</button>
+    <button onclick="addElement()">add element node</button>
+    <button onclick="removeNode()">add removes node</button>
+    <p class="pp"></p>
+
+    <script>
+        function addtext(){
+            //p요소에 추가할 노드 생성
+            var node= document.createTextNode('thisis text');
+            var node= document.createTextNode('<a href="">google</a>');
+            var targets=document.getElementsByClassName('pp');
+            targets[0].appendChild(node);
+            //위작업을 축약으로..
+            targets[0].textContent='<a href="">NAVER</a>';
+
+
+        }
+        function addElement(){
+                var node= document.createElement('a');
+
+                //속성노드 추가
+                var attr= document.createAttribute('href');
+                attr.value= "http://www.google.com";
+                node.setAttributeNode(attr);
+
+                //텍스트 노드 추가
+                var text= document.createTextNode('Google');
+                node.appendChild(text); 
+
+                //node.insertBefore(text, node.firstChild);
+
+                //p요소에 a요소 붙이기
+                var targets= document.getElementsByClassName('pp');
+                targets[0].appendChild(node);
+
+                //요소노드 붙이는 작업이 한방에 축약으로
+                targets[0].innerHTML +='<a href="naver.com">naver</a>'
+                
+            }
+
+            function removeNode(){
+                var target=document.getElementsByClassName('pp')[0];
+                var node=target.firstChild;
+                target.removeChild(node);
+            }
+    </script>
+    <!-- 새로나온 요소 찾는 기법 , css의 선택자를 이용하는기법, 이거요즘많이쓴다-->
+    <hr>
+    <h4>aaa</h4>
+    <h4>bbb</h4>
+    <h4>ccc</h4>
+    <script>
+        //이렇게 아에 아이디나 클래스를 셀렉할수있다.
+        //이렇게 찾으면 한놈만 찾아진다.
+        var e=document.querySelector('h4');
+        e.onclick =function(){
+            alert('aa');
+        }
+
+        var es=document.querySelectorAll('h4');//여러개
+        es[1].onclick=function(){
+            alert(this); //this는 클릭이벤트를 발동한 h4요소/
+        }
+        es[2].onclick=function(e){
+            alert(e); //e: mouse event객체
+        }
+
+    </script>
+    
+</body>
+</html>

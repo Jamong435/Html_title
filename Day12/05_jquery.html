@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+
+        <!-- JQuery : JS의 라이브러리 : jquery.com -->
+
+        <!-- 외부라이브러리 적용 -->
+        <!-- 1. 다운로드 방식 -->
+        <!-- <script src="./jquery-3.5.1.min.js"></script> -->
+
+        <!-- 2. CDN(Content Delivery Network) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+        <!-- JQuery문법 -->
+        <!-- css의 선택자 기법을 활용한 라이브러리 -->
+        <!-- jQuery().xxx() 모든 기능을 메소드로 처리 -->
+        <!-- $().xxx() 모든 기능을 메소드로 처리 -->
+        
+        <script>
+            jQuery(document).ready( function(){
+                //alert();
+                jQuery('#btn').click( function(){
+                    //alert();
+                    //jQuery('#hh').hide();
+                    //줄여서
+                    $('#hh').hide();
+                } );
+
+                $('#btn2').click( function(){
+                    $('#hh').show();
+                } );
+
+                $('#btn3').on('click', function(){
+                    $('#hh').toggle();
+                });
+
+                $('input').focus( function(){
+                    $(this).css('background-color', 'yellow');
+                });
+
+                $('input').blur( function(){
+                    $(this).css('background-color', '');
+                });
+
+            });//
+        </script>
+    </head>
+    <body>
+
+        <button id="btn">hide</button>
+        <button id="btn2">show</button>
+        <button id="btn3">toggle</button>
+        <hr>
+        <h2 id="hh">Hello</h2>
+
+        <hr>
+        <!-- 입력필드 이벤트 처리 -->
+        이름 : <input type="text">
+
+        <hr>
+        <button id="b1">hide</button>
+        <button id="b2">show</button>
+        <button id="b3">toggle</button>
+        <button id="b4">slideDown</button>
+        <button id="b5">move</button>
+        <br>
+
+        <img src="./ms19.png" alt="" width="150">
+        <style>
+            img{position: relative;}
+        </style>
+
+        <script>
+            $('#b1').on('click', function(){
+                $('img').hide('slow');
+            });
+            $('#b2').on('click', function(){
+                $('img').show('fast');
+            });
+            $('#b3').on('click', function(){
+                $('img').toggle(3000);
+            });
+            $('#b4').on('click', function(){
+                $('img').slideDown('slow');
+            });
+
+
+            $('#b5').click(function(){
+                $('img').animate( {left:'200px', top:'50px', opacity:'0.5', width:"+=50px"} , 3000 ); //left값을 적용하려면 요소가 반드시 static 포지션이 아니어야 함
+            });
+        </script>
+
+        <hr>
+        <!-- DOM요소 제어하는 메소드들 -->
+        <p id="p1">Hello <strong>world</strong> 입니다.</p>
+        <button id="b6">text 읽기</button>
+        <button id="b7">html 읽기</button>
+        <script>
+            $('#b6').click(function(){
+                var s= $('#p1').text();
+                alert(s);
+            });
+            $('#b7').click(function(){
+                var s= $('#p1').html();
+                alert(s);
+            });
+        </script>
+
+        <p id="p2">aaa</p>
+        <button id="b8">text 쓰기</button>
+        <button id="b9">html 쓰기</button>
+        <script>
+            $('#b8').click(function(){
+                $('#p2').text('<a href="">Google</a>');
+            });
+            $('#b9').click(function(){
+                $('#p2').html('<a href="">Google</a>');
+            });
+        </script>
+
+        <hr>
+        <input type="text" id="in3" value="Hello world">
+        <button id="b10">읽기</button>
+        <button id="b11">쓰기</button>
+        <script>
+            $('#b10').click(function(){
+                var s= $('#in3').val();
+                alert(s);
+            });
+            $('#b11').click(function(){
+               $('#in3').val('Nice to meet you');
+            });
+        </script>
+
+        <hr>
+        <!-- 복잡한 선택자 -->
+        <div>
+            <input type="checkbox" name="cbs[]" id="cb1" value="apple">apple<br>
+            <input type="checkbox" name="cbs[]" id="cb2" value="banana">banana<br>
+            <input type="checkbox" name="cbs[]" id="cb3" value="orange">orange<br>
+            <input type="checkbox" name="cbs[]" id="cb4" value="berry">berry<br>
+        </div>
+        <button class="bbb">button</button>
+        <h3 id="gg"></h3>
+        <script>
+
+            $('.bbb').click(function(){
+
+                var str="";                
+                $('div input[type=checkbox]:checked').each(function(){
+                    str += $(this).val()+", ";
+                });
+                $('#gg').html(str);
+            });
+        </script>
+
+
+
+        
+    </body>
+</html>

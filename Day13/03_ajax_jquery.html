@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        
+        <!-- jquery 라이브러리 적용 [CDN] -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <script>
+            // JQuery 라이브러리 AJAX 기술
+            $(document).ready(function(){
+
+                $('#b1').click(function(){
+                    var name= $('#in1').val();
+                    var email="aaa@aaa.com";
+
+                    $.ajax({
+                        type: "GET",
+                        url: "./getTest.php?name="+name+"&email="+email,
+                        success: function(data){
+                            $('#hh').html(data);
+                        },
+                        error: function(error){
+                            $('#hh').html(error.responseText);
+                        }
+                    });
+
+                });
+
+                $('#b2').click(function(){
+                    var name= $('#in1').val();
+                    var email= "aaa@aa.com";
+
+                    var data= "name="+name+"&email="+email;
+
+                    $.ajax({
+                        type:"POST",
+                        url:"./postTest.php",
+                        data: data,                        
+                        success:function(data){
+                            $('#hh').html(data);
+                        }
+                    });
+
+                });
+
+            });            
+
+        </script>
+    </head>
+    <body>
+        <input type="text" id="in1">
+        <button id="b1">GET</button>
+        <button id="b2">POST</button>
+
+        <h3 id="hh"></h3>
+
+        <!-- DB의 데이터 불러와서 보여주기 -->
+        <!-- JS + HTML을 혼합해서 코딩 -->
+
+        <!-- jquery대신에 네트워크용으로 fetch 라이브러리가 있음 -->
+        <!-- fetch가 현재 기본 js에 내장된 라이브러리가 됨 -->
+        <!-- 하이브리드 앱 수업시간에 소개!! -->
+    </body>
+</html>

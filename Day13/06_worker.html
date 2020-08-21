@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <script>
+            function aaa(){
+                var n=0;
+                while(true){
+                    n++;
+                    document.getElementById('hh').innerHTML=n;
+                    //무한반복중이어서 출력도 못함
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <button onclick="aaa()">무한반복</button>
+        <hr>
+        <h2 id="hh">결과</h2>
+        <button>button</button>
+
+        <button onclick="bbb()">웹워커 시작</button>
+        <button onclick="ccc()">웹워커 종료</button>
+
+        <script>
+            var w;
+            function bbb(){
+
+                //웹 워커는 서버에서만 동작함. 즉 주소가 http:로 시작...
+
+                //워커객체가 없는가?
+                if(w==undefined){                
+                    
+                    w= new Worker('./worker.js');//스레드와 같은역할 . 생성하면 자동 run임
+
+                    //worker가 post로 보낸 메세지 받기
+                    w.onmessage= function(event){
+                        document.getElementById('hh').innerHTML= event.data;
+                    };
+                }
+            }
+
+            function ccc(){
+                w.terminate();
+                w= undefined;
+            }
+        </script>
+    </body>
+
+</html>

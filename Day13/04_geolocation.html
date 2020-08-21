@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+
+        <script>
+            function clickBtn(){
+                navigator.geolocation.getCurrentPosition( 
+                function(position){
+                    var lat= position.coords.latitude;
+                    var lng= position.coords.longitude;
+
+                    document.getElementById('hh').innerHTML= lat+", "+lng;
+                }, 
+                function(error){
+                    var str;
+
+                    switch( error.code ){
+                        case error.PERMISSION_DENIED:
+                            str="사용자 거부";
+                            break;
+
+                        case error.POSITION_UNAVAILABLE:
+                            str="지리정보가 없다"
+                            break;
+
+                        case error.TIMEOUT:
+                            str="시간초과";
+                            break;
+
+                        case error.UNKNOWN_ERROR:
+                            str="알수없는 에러";
+                            break;
+                    }
+
+                    document.getElementById('hh').innerHTML=str;
+
+                });
+            }
+
+            var a;//내위치를 보는녀석
+            function aaa(){
+                a=navigator.geolocation.watchPosition(function(){
+                    var lat= position.coords.latitude;
+                    var lng= position.coords.longitude;
+
+                    document.getElementById('hh').innerHTML= lat+", "+lng;
+               
+                });
+            }
+            function bbb(){
+                navigator.geolocation.clearWatch(a);
+
+            }
+        </script>
+    </head>
+    <body>
+        <button onclick="clickBtn()">my location</button>
+        <h3 id="hh">location</h3>
+
+        <button onclick="aaa()">위치 자동 업데이트 시작</button>
+        <button onclick="bbb()">위치 자동 업데이트 시작</button>
+        
+    </body>
+</html>

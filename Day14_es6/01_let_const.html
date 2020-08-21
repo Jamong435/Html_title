@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //ECMAscript6 (2015년발표 or ES6)
+        //1.변수 선언 키워드 추가 : let,const
+        //기존의 var변수
+        var a=10;
+        document.write(a+"<br>");
+        //같은 이름의 변수를 또 선언한다면?
+        var a=20;
+        document.write(a+"<br>");
+        //상관없음..그냥 'a'변수의 값만 20으로 변경
+        //새로운 let
+        let b=24;
+        document.write(b+"<br>");
+        // 같은 이름으로 변수를 선언하면?
+        // let b=26;
+        // document.write(b+"<br>");
+        //즉, let은 var과 다르게 같은 이름의 변수사용 방지 할수있음
+        //let도 변수이므로 값 변경은 특별한것이 없음
+        b=200;
+        document.write(b+"<br>");
+
+        //상수만들기
+        const c= 10000;
+        document.write(c+"<br>");
+
+        // //상수값변경
+        // c=2000; //error 하지만 이줄 아래부터 안됨
+        // document.write(c+"<br>");
+
+        // const c=20000;
+        // document.write(c+"<br>"); 이건 치명적인 에러 -전체동작불가능
+        let d= "aaa";
+        document.write(d+"<br>");
+
+        d= 30;
+        document.write(d+"<br>");
+
+        d= true;
+        document.write(d+"<br>");
+
+        d= new Date();
+        document.write(d+"<br>");
+
+        const e="sam";
+        document.write(e+"<br>");
+        const f= new Date();
+        document.write(f+"<br>");
+        document.write("<hr>");
+        //let과 var의 지역인식범위 차이 -scof 차이
+        //var은 함수단위를 지역으로 인식
+        //let은 {}가 단위로 지역으로 인식
+        if(true){
+            var g=10; //지역변수 X
+            document.write(g+"<br>");
+        }
+        document.write(g+"<br>"); //10 -why? var은 함수만! 지역으로 인식
+
+        let h=10;
+        if(true){
+            let h=20;
+            document.write(h+"<br>"); //let은 무조건 지역변수
+        }
+        document.write(h+"<br>");//Error-h는{}의 지역변수니까
+
+        function aaa(){
+            var k=15;
+            document.write(k+"<br>");
+        }
+        aaa();
+        // document.write(k+"<br>");
+
+        for(var i=0; i<3; i++){
+            document.write("aaa<br>");
+        }
+        document.write(i+"<br>");
+       
+
+
+        for(let i=0; i<3; i++){
+            document.write("aaa<br>");
+        }
+        // document.write(i+"<br>");
+
+        
+        
+    </script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //객체를 생성하는 방법 :class키워드 등장[java언어와 사용법 유사함]/ES5버전에 등장
+        // 1.클래스 선언 [객체를 만드는것이 아님]
+        class Person{
+            //멤버변수 - 속성 proprety 라고 말을해야한다
+            // let name;//ERROR
+            // this.name//error
+            name="sam";//이게 멤버변수만드는 방식.
+            tel;
+            //이렇게 써도되나 잘안쓰고
+
+            //많이쓰는 방식은 생성자 함수에서 멤버변수(속성) 생성
+            //생성자함수- 자바와 다르게 constructor()입니다.
+            
+            
+            constructor(){
+                this.age=20; //이런변수가없으면 이떄 만들어짐.
+                this.address="seoul"; //이건 전역변수이고
+
+                let gender="male";//이건 지역변수임.
+            }//constructor..
+
+            // 멤버함수- 메소드 라고 말을해야한다.
+            //function키워드 사용금지
+            //이렇게 쓰면 그냥 메소드가 된다
+            show(){
+                // document.write(name+","+tel+","+age+","+address);
+                //클래스 안에서 다른 멤버들을 사용할 때는 반드시 this.키 필요하다
+                document.write(this.name+","+this.tel+","+this.age+","+this.address);
+            }
+            aaa(){
+                //다른멤버함수 호출
+                this.bbb();//메소드안에서도 this로 불러야한다
+            }        
+            bbb(){
+                document.write("bbb<br>")
+
+            }
+
+            //익명함수로 멤버함수 만들기
+            out= function(){
+                document.write("out!<br>");
+            }
+
+            //다른함수를 멤버변수로 대입가능함
+            //js에서 함수를 객체로 바라보기에 변수에 대입이 됨
+            //그래서 함수전달도 가능함
+            sss=kkk;
+            
+        }//class
+
+        //밖에있는 함수를 대입가능하기도하다
+        function kkk(params) {
+            document.write('kkk<br>')
+        }
+
+
+        let p=new Person();
+        document.write(p.name+"<br>")
+        document.write(p.tel+"<br>")
+        document.write(p.address+"<br>")
+        document.write(p.age+"<br>")
+
+        p.show();
+        p.aaa();
+        p.sss();
+
+
+
+    </script>
+    <!-- 다른스크립트영역 -->
+    <script>
+        //같은 .html문서 안에서 다른 스크립트 영역에서도 person클래스 인식할수있음
+        let p2= new Person();
+        p2.show();
+        p2.out();
+        p2.sss();
+
+        class Member{
+            constructor(id,pw){
+                this.id=id;
+                this.pw=pw;
+            }
+
+            //생성자 오버로딩 문법적으로 불가함!! 두개는 불가!
+            // constructor(){
+            //     this.id="익명"
+            //     this.pw=0;
+            // }
+
+            //생성자 오버로딩이없게 다른 기법사용
+            //파라미터의 디폴트 값 기술 적용[c++에 있는 기술]
+
+            constructor(id="익명", pw=0){
+                this.id= id;
+                this.pw= pw;
+            }
+
+            //일반 메소드도 오버로딩이 안되나???
+            output(){
+                document.write("no data!<br>");
+            }
+
+            //함수 오버로딩???  에러는 아님
+            //대신 덮어쓰기임
+            //위 output()함수를 새로 정의한것입니다.
+            output(a){
+                document.write(a+ " : data!<br>");
+            }
+
+
+            show(){
+                document.write("ID: "+ this.id+", "+"PW: "+ this.pw+"<br>");
+            }
+        }
+
+        var m= new Member("aaa", 1234);
+        m.show();
+
+        var m2= new Member(); //값을 안주면?
+        m2.show(); //undefined,undefined
+
+        //만약에 값을 안주면 기본값으로 "익명", 0000 으로 적용되고 싶다면
+        //생성자 오버로딩 //ERROR - 
+
+        m2.output();
+        m2.output(10);
+        
+        
+
+    </script>
+
+    
+    
+    
+</body>
+</html>

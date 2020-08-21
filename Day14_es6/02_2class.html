@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<script>
+    class Human{
+        constructor(name,age){
+            this.name=name;
+            this.age=age;
+        }
+        show(){
+            document.write(this.name+","+this.age);
+        }
+        
+    }
+    let h= new Human("sam",20);
+    h.show();
+
+    document.write("<hr>");
+
+    //human을 상속하는 student클래스 선언
+    class Student extends Human{
+        constructor(name,age,major){ //상속받은것과 고유의것을 다 써줘야한다
+            // this.major=major;
+            // this.name=name; 
+            //error-반드시 명시적으로 부모클래스의 생성자
+            //호출문이 반드시반드시있어야한다.
+            super(name,age);
+            this.major=major;
+        }
+        //기존에있던 show()가 마음에 들지 않으면 변경
+        //오버라이드 override
+        show(){
+            super.show();
+            document.write(","+this.major);
+        }
+        
+
+    }
+
+    let s= new Student("robin",15,"android");
+    s.show();
+
+</script>
+
+
+</head>
+<body>
+    <hr>
+    <script>
+        //정적멤버
+        class First{
+            static show(){
+                document.write("first show!!<br>");
+            }
+        }
+        //static멤버는 객체 생성없이 클래스명으로도 호출가능
+
+        First.show();
+
+        class Second{
+            constructor(){
+                //this.name="aaa";//error
+                //static var a; //지역변수안됨
+            }
+            static name="aa";
+        }
+        document.write(Second.name+"<br>");
+        //static도 나중에 동적으로 추가할수있음. 나중에 할수있다는게 '동적'이라고표현함
+        
+        Second.age=30;
+        document.write(Second.age+"<br>");
+
+        //자바와 다르게 static은 객체에서는 사용불가
+        let s3= new Second(); //이렇게하면 자동으로 추가된다고 생각함.
+        document.write(s3.name+"<br>");
+
+        //구조분해할당 문법
+
+    </script>
+    <hr>
+    <script>
+        class Nice{
+            constructor(){
+                this.name="kim"
+                this.age=20;
+                this.address="seoul";
+            }
+        }
+        const n= new Nice(); //n이 콘스트라는건 그 안에있는값을 바꾸는건 상관없다. 
+        //그러나 n이바라보는 new nice를 바꾼다면 그건 에러
+        document.write(n.name+"<br>");
+        document.write(n.age+"<br>");
+        document.write(n.address+"<br>");
+        //이렇게 하나하나 가져오는거 귀찮아서
+        //객체의 멤버변수를 쪽 뽑아와서 일반 변수에 대입 꼭 const안써도되고 var써도되는데
+        //const를많이 사용함
+        const{name,age}= n;
+        document.write(name+"<br>");
+        document.write(age+"<br>");
+
+        // 구조분해할당은 함수의 파라미터로 객체를 전달할떄
+        //많이 사용됨!
+        //함수 선언
+        function showAddress({address}) {
+            document.write(address+"<br>");
+        }
+        showAddress(n);
+
+
+        const {name}=n;//이름이 다르면 구조분해할당 못함
+        document.write(nam+"<br>");
+
+        
+        
+    </script>
+    
+</body>
+</html>

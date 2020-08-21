@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- file api 사용자의 컴퓨터에 파일을 저장및 읽기(쓰기는 보안상 금지) -->
+    <input type="file" id="in1">
+    <button onclick="aaa()">파일읽기</button>
+    <textarea id="ta" cols="30" rows="10"></textarea>
+
+    <script>
+        function aaa(){
+            in1=document.getElementById('in1');
+            var v=in1.value;
+            //alert(v); //value는 파일의 fake경로를 얻어온다
+            //파일입출력을 하려면 실제 경로가 필요하다고함
+            var files= in1.files; //FileList객체(file객체들의 배열)[여러개의 파일이 선택될수도있어서 배열로]
+            //php의 file정보 배열과 비슷함
+            alert(files[0].name+"\n"+files[0].size+"\n"+files[0].type);
+
+            //파일리더를 객체 생성
+            var fr= new FileReader();
+
+            //읽기명령전에 읽은 결과를 받는 콜백함수 지정
+            fr.onload=function(){
+                document.getElementById('ta').innerHTML=fr.result;
+            }
+
+
+            //파일리더에게 택스트로 데이터를 읽어달라고 요청 (비동기 방식)
+            fr.readAsText(files[0],"utf-8");
+        }
+    </script>
+    
+    <hr>
+    <h2>Image File Reader</h2>
+    <input type="file" id="in2">
+    <button onclick="bbb()">이미지 읽기</button>
+    <hr>
+    <img src="" alt="" id="cc" style="border: 4px solid black; max-width: 500px; max-height: 500px;">
+    <script>
+        function bbb(){
+            //선택한 파일로 부터 파일정보객체 얻어오기 //value쓰면 가짜정보가 오니까 files를써서 진짜 정보를가저온다 files는 배열이다
+            var files=document.getElementById('in2').files;
+            //파일리더 객체 생성
+            var fr= new FileReader();
+            //아래의 읽기 요청의 결과를 콜백으로 받기
+            fr.onload=function(){
+                document.getElementById('cc').src=fr.result;
+            }
+            //파일의 데이터를 URL로 읽어드리기
+            fr.readAsDataURL(files[0]);
+        }
+    </script>
+</body>
+</html>

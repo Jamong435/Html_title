@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>  
+        <script>
+
+            function loaded(){
+                var canvas= document.getElementById('canvas1');
+
+                //캔버스에 그림그릴 화가객체 얻어오기
+                var context= canvas.getContext('2d');
+
+                 //글씨 스타일지정
+                 context.font= "20px cursive";
+
+                //캔버스에 글씨 그리기
+                context.fillStyle="red";
+                context.fillText("Hello", 10, 40);//글씨의 좌하단좌표
+                context.fillText("Hello", 0, 0);
+                context.fillText("Hello", 0, 10); //글씨 기본사이즈 10
+                context.fillText("Hello", 10, 400);               
+
+                // 글씨 윤곽선으로 그리기
+                context.strokeStyle="blue";
+                context.strokeText("Hello", 100, 40);
+
+                //사각형 그리기
+                context.fillRect(10,50, 100,40);//좌상단:10,50  너비:100, 높이:40
+                context.strokeStyle="green";
+                context.strokeRect(120,50,100,40);
+
+                //직선 그리기
+                context.beginPath(); //선 경로 작업 시작
+                context.moveTo(10, 100); //선 시작점
+                context.lineTo(100, 150);
+                context.lineTo(150, 120);
+
+                context.stroke(); //위에 설정된 경로로 선 그리기
+
+                //곡선,원,도형,그래디언트,패턴..변형등 많은 기능
+                //이미지 그리기
+                var a= new Image();
+                a.src="./ms_02.png";
+
+                //이미지는 용량이 커서 바로사용못해서 이미지로드 끝났을때 그리도로갷야함
+                a.onload=function(){
+                    context.drawImage(a,10,170); //그림의 좌상단 좌표
+                    context.drawImage(a,10,180,100,100); //a를 10,180좌표로 그려주시는데 100w100h로 만들어주세요
+                }
+                
+            }
+            
+        </script>      
+    </head>
+    <body onload="loaded()">
+        <canvas id="canvas1" width="300" height="400" style="border:1px solid black"></canvas>
+    </body>
+</html>

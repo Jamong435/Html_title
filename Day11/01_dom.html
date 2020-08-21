@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM에 이해</title>
+</head>
+<body>
+    <!-- DOM(Document object Model) -->
+    <!-- DoM트리의 가제 요소 하나하나를 NODE라고부름 -->
+    <!-- node의 종류 :element node, attribute node, text node -->
+    <!-- node의 관계: parent node,child node,sibling node <-이 관계를 이용해서
+    요소를 제어 기능 -->
+    <p id="p1"><a href="" target="">bbb</a></p>
+    <script>
+        //id.p1인 p요소
+        var e= document.getElementById('p1');
+        //alert(e.nodeType+","+e.nodeName); 
+        //nodetype: 1 요소노드
+
+        //p요소의 속성
+        var attrs=e.attributes;//속성들을 배열로 리턴
+        //alert(attrs[0].nodeType+","+attrs[0].nodeName);
+        // alert(attrs[0].value); //속성값
+
+        // p요소의 첫번째 자식노드:a 요소
+        var e=e.firstChild;
+        // alert(e.nodeType+","+e.nodeName); 
+        //a요소의속성
+        var attrs= e.attributes;
+        // alert(attrs[0].nodeType+","+attrs[0].nodeName);
+        // alert(attrs[1].nodeType+","+attrs[1].nodeName);
+
+        //a요소의 첫번째 자식 노드: 텍스트
+        var t=e.firstChild;
+        // alert(t.nodeType+","+t.nodeName);//nodetype:3
+        // alert(t.data);//텍스트노드 값출력
+
+    </script>
+    <hr>
+    <!-- 자식노드를 제어하기 -->
+    <ul>
+        <li>aaa</li>
+        <li>bbb</li>
+        <li>ccc</li>
+        <li>ddd</li>
+    </ul>
+
+    <ul>
+        <li>kkk</li>
+        <li>sss</li>
+    </ul>
+    <script>
+        //li 요소 전체 개수
+        var items= document.getElementsByTagName('li');
+        //alert( items.length ); //6
+
+        //첫번째 ul요소의 자식들 중 li요소의 개수
+        var lists= document.getElementsByTagName('ul');
+        var items= lists[0].getElementsByTagName('li');
+        //alert( items.length ); //4
+
+        //3번째 li의 텍스트값 - ccc
+        // alert( items[2].firstChild.data );
+
+        //ul요소의 자식중 첫번째 요소의 텍스트 노드 값
+        // alert(lists[0].firstChild.nodeName);
+        //li? 왜 text로 나올까? 내가 첫줄에 엔터를 쳤기때문
+        //엔터하나하나가 자식요소가 된다.ㅡㅅㅡ
+        //줄바꿈이 없다면 li요소가 첫자식이됨..하지만 불편
+        //찾을때부터 ul의 첫번째 요소 node 자식을 찾는경우가 더많음
+        // alert(lists[0].firstElementChild.nodeName);
+        // alert(lists[0].firstElementChild.firstChild.data);
+
+        // //마지막 자식요소 값
+        // alert(lists[0].lastElementChild.firstChild.data);
+    
+    </script>
+    <!-- 현재 요소 찾아 제어하기 -->
+    <hr>
+
+        <div>
+            <p>Fruits List</p>
+            <ul>
+                <li>apple</li>
+                <li>banana</li>
+                <li>orange</li>
+            </ul>
+        </div>
+
+
+       <!-- onclick함수에 의해 실행되는 clickBtn()이름의 함수에 -->
+        <!-- this를 전달하므로서 클릭을 한 button객체를 전달할 수 있음 -->
+        <button onclick="clickBtn(this)">button</button> 
+        <p></p>
+        
+        <script>
+            //전달받은 e가 button요소객체 임
+            function clickBtn(e){
+                //div요소 찾기
+                var divs= document.getElementsByTagName('div');
+
+                //div의 첫번째 자식요소 p 찾기
+                var p= divs[0].firstElementChild;
+
+                //p요소 다음에 있는 ul요소 찾기
+                var ul= p.nextSibling; //다음 형제노드 찾기
+                var ul= p.nextElementSibling; //다음 형제요소노드 찾기
+
+                //alert( ul.nodeName);
+
+                //ul의 자식노드들
+                //alert( ul.childNodes.length );//7 - 엔터도 있음
+
+                //ul의 자식 요소노드들
+                //alert( ul.childElementCount) ;
+
+                // ul의 자식 요소들의 텍스트값들 버튼 다음에 있는 p요소에 출력
+                // p요소에 id가 없기에 찾기가 불편함
+
+                // 버튼요소를 찾아서 그 다음요소를 제어
+
+                //이 영역이 버튼을 클릭했을때 실행되는 함수
+                //이 함수안에서 이 버튼을 찾을 수 있지 않을까?
+
+                //alert( e.nodeName );
+
+                e.nextElementSibling.innerHTML= "aaa";
+
+
+
+
+
+            }
+        </script>
+
+</body>
+</html>
